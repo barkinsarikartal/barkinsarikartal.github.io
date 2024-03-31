@@ -1,3 +1,1 @@
-# Personal WebSite
-
-29ardayildiz.github.io
+# Personal Web Page
