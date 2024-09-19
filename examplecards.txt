@@ -1,0 +1,21 @@
+{
+    "Hash": "19092024154630",
+    "CardList": [
+        {
+            "CardId": "03030303",
+            "Name": "NOT VALID"
+        },
+        {
+            "CardId": "02020202",
+            "Name": "NOT VALID"
+        },
+        {
+            "CardId": "01010101",
+            "Name": "NOT VALID"
+        },
+        {
+            "CardId": "979cfab8",
+            "Name": "EXAMPLE VALID"
+        }
+    ]
+}
