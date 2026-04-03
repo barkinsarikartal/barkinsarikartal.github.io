@@ -1,355 +1,318 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barkın SARIKARTAL</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <title>Barkın SARIKARTAL - Portfolio</title>
+    <!-- Google Fonts for Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://github.com/barkinsarikartal/barkinsarikartal.github.io/blob/main/favicon.png" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
-<body class="main-content">
-    <header class="container header active" id="home">
-        <div class="header-content">
-            <div class="left-header">
-                <div class="h-shape"></div>
-                <div class="image">
-                    <img src="img/barkin.jpeg" alt="">
-                </div>
-            </div>
-            <div class="right-header">
-                <h1 class="name">
-                    Hi, I'm <span>Barkın SARIKARTAL.</span>
-                    Computer Engineer Student.
-                </h1>
-                <p>
-                    Hi! I'm Barkın. I'm a computer engineering student at Çankaya University. 
-                    A Fun Fact About Me: I Sometimes Read Datasheets Instead of Novels. 
-                    I'm interested in Embedded Software, Game Development and Object Oriented Programming Practices. 
-                    I also Like Playing Piano.
-                    You can contact me via e-mail.
-                </p>
-                <div class="btn-con">
-                    <a href="https://barkinsarikartal.github.io/barkin_cv.pdf" class="main-btn">
-                        <span class="btn-text">Download CV</span>
-                        <span class="btn-icon"><i class="fas fa-download"></i></span>
-                    </a>
-                </div>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">BS.</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                        </path>
+                    </svg>
+                    <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                        </path>
+                    </svg>
+                </button>
             </div>
         </div>
-    </header>
+    </nav>
+
     <main>
-        <section class="container about" id="about">
-            <div class="main-title">
-                <h2>About <span>Me</span><span class="bg-text">About Me</span></h2>
-            </div>
-            <div class="about-container">
-                <div class="left-about">
-                    <h4>More Information About Me</h4>
-                    <p>
-                        I remember that I decided my job when I was a lad as 13 years old while watching a video about Raspberry Pi 2 Model B.
-                        I was also watching Unity Game Engine tutorials back in the year 2017.
-                        I'm also a self-taught professional video editor! I edited videos of Turkiye's well-known tech influencers; Lezzetli Robot Tarifleri, Povodu & Robo90.
-                        My goal is to be a Computer Engineer that has a creative mindset.
-                    </p>
-                    <div class="btn-con">
-                        <a href="https://barkinsarikartal.github.io/barkin_cv.pdf" class="main-btn">
-                            <span class="btn-text">Download CV</span>
-                            <span class="btn-icon"><i class="fas fa-download"></i></span>
-                        </a>
-                    </div>
+        <!-- Hero Section -->
+        <section id="about" class="hero section fade-in">
+            <div class="hero-content">
+                <h1 class="title">Barkın <br />SARIKARTAL</h1>
+                <p class="subtitle">Computer Engineering Student & Developer</p>
+                <div class="hero-text">
+                    <p>I am a computer engineering student with a strong focus on embedded systems, IoT applications,
+                        and AI integrations. I enjoy building hardware and software solutions that make a real-world
+                        impact.</p>
                 </div>
-                <div class="right-about">
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">4</p>
-                            <p class="small-text">Projects <br /> Completed</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">7</p>
-                            <p class="small-text">Events <br /> Attended</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">3rd</p>
-                            <p class="small-text">Year at  <br /> University</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">2,69</p>
-                            <p class="small-text">Cumulative <br /> GPA</p>
-                        </div>
-                    </div>
+                <div class="hero-actions">
+                    <a href="BARKIN-SARIKARTAL-CV.pdf" target="_blank" class="btn primary-btn">Download CV</a>
+                    <a href="https://github.com/barkinsarikartal" target="_blank" class="btn secondary-btn">GitHub</a>
+                    <a href="mailto:sarikartalbarkin@gmail.com" class="btn secondary-btn">Contact</a>
                 </div>
             </div>
-            <div class="about-stats">
-                <h4 class="stat-title">My Skills</h4>
-                <div class="progress-bars">
-                    <div class="progress-bar">
-                        <p class="prog-title">C++</p>
-                        <div class="progress-con">
-                            <p class="prog-text">70%</p>
-                            <div class="progress">
-                                <span class="cpp"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">C</p>
-                        <div class="progress-con">
-                            <p class="prog-text">80%</p>
-                            <div class="progress">
-                                <span class="c"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Adobe Premiere Pro</p>
-                        <div class="progress-con">
-                            <p class="prog-text">75%</p>
-                            <div class="progress">
-                                <span class="premiere"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Unreal Engine</p>
-                        <div class="progress-con">
-                            <p class="prog-text">50%</p>
-                            <div class="progress">
-                                <span class="unreal"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Unity Game Engine</p>
-                        <div class="progress-con">
-                            <p class="prog-text">85%</p>
-                            <div class="progress">
-                                <span class="unity"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Arduino</p>
-                        <div class="progress-con">
-                            <p class="prog-text">95%</p>
-                            <div class="progress">
-                                <span class="arduino"></span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="hero-image-container">
+                <!-- Placeholder for Profile Picture -->
+                <div class="profile-placeholder">
+                    <img src="img/profile.jpg" alt="Barkın Sarıkartal" class="profile-img"
+                        onerror="this.style.display='none'; this.parentElement.classList.add('no-image')">
                 </div>
             </div>
-            <h4 class="stat-title">My Education History</h4>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section fade-in">
+            <div class="section-header">
+                <h2>Experience</h2>
+            </div>
+
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
+                    <div class="timeline-date">Jun 2025 – Jul 2025</div>
+                    <div class="timeline-content card">
+                        <h3>Intern</h3>
+                        <div class="company">ASELSAN</div>
+                        <p>Worked on wireless communication protocols such as Wi-Fi, Bluetooth Classic and ESP-NOW with
+                            the ESP32 microcontroller and created fundamental test applications.</p>
                     </div>
-                    <p class="tl-duration">2021 - present</p>
-                    <h5>Çankaya University<span> - Computer Engineering</span></h5>
-                    
                 </div>
+
                 <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
+                    <div class="timeline-date">Mar 2024 – Present</div>
+                    <div class="timeline-content card">
+                        <h3>IT Department – Part-Time Student</h3>
+                        <div class="company">Çankaya University</div>
+                        <ul class="task-list">
+                            <p>Working as a part-time developer in the IT Department, contributing to university-level
+                                system development.</p>&nbsp;
+                            <li><strong>Smart School Bus Tracking System:</strong> Developed a smart bus access and
+                                tracking system using ESP32, SIM7600 4G module, interacting with university servers
+                                via REST API.</li>
+                            <li><strong>RFID-Based University Access Control System:</strong> Developed an
+                                RFID-based access control system, in operation since Jan 2024.</li>
+                        </ul>
                     </div>
-                    <p class="tl-duration">2019 - 2021</p>
-                    <h5>Private Yankı Anatolian High School</h5>
                 </div>
+
                 <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2017 - 2019</p>
-                    <h5>Private ASO Technical Anatolian High School<span> - Industrial Automation Technologies</span></h5>
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2014 - 2017</p>
-                    <h5>Private Seviye College</h5>
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2013 - 2014</p>
-                    <h5>Arı Private Schools</h5>
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2009 - 2013</p>
-                    <h5>Refika Aksoy Primary School</h5>
-                </div>
-            </div>
-        </section>
-        <section class="container" id="portfolio">
-            <div class="main-title">
-                <h2>Portfolio<span class="bg-text">Portfolio</span></h2>
-            </div>
-            <p class="port-text">
-                Here are some of my works that I've done for some classes, hackathons, gamejams or just for fun.
-            </p>
-            <div class="portfolios">
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port1.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Realistic Horror Game</h3>
-                        <div class="icons">
-                            <a href="https://github.com/Cagdas-Gulec/UE4_Horror_Game_Project" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.youtube.com/watch?v=FLW4SrO-ktk" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-				<div class="portfolio-item">
-                     <div class="image">
-                         <img src="img/port3.jpg" alt="">
-                     </div>
-                     <div class="hover-items">
-                         <h3>Push Or Perish</h3>
-                         <p style="text-align: center;">This project is a simple reflex-based game called Push and Perish, developed using the MSP430G2553 microcontroller.</p>
-                         <div class="icons">
-                             <a href="https://github.com/29ardayildiz/Push_Or_Perish" class="icon">
-                                 <i class="fab fa-github"></i>
-                             </a>
-                             <a href="https://www.youtube.com/watch?v=0pIQgclVjL4" class="icon">
-                                 <i class="fab fa-youtube"></i>
-                             </a>
-                         </div>
-                     </div>
-                 </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port2.PNG" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Dungeon of Pacemaker</h3>
-                        <div class="icons">
-                            <a href="https://github.com/alperenelbiz/TeduJam" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port3.PNG" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Color Changing NeoPixel</h3>
-                        <h3>With Gyroscope Data</h3>
-                        <div class="icons">
-                            <a href="https://github.com/barkinsarikartal/Arduino_MPU6050_NeoPixel_Example" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://youtu.be/zCAI8u63GBw?si=XvAnbBpJiCtOD6-I" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
+                    <div class="timeline-date">Sep 2024 – Dec 2024</div>
+                    <div class="timeline-content card">
+                        <h3>Instructor of Electronic Programming and IoT</h3>
+                        <div class="company">Deneyap Türkiye</div>
+                        <p>Followed a 14-week training program for middle and high school students. A project exhibition
+                            was held showcasing projects where students applied what they had learned.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="container contact" id="contact">
-            <div class="contact-container">
-                <div class="main-title">
-                    <h2>Contact<span class="bg-text">Contact</span></h2>
+
+        <!-- Education Section -->
+        <section id="education" class="section fade-in">
+            <div class="section-header">
+                <h2>Education</h2>
+            </div>
+            <div class="card edu-card">
+                <div class="edu-header">
+                    <h3>B.Sc. in Computer Engineering (100% Scholarship)</h3>
+                    <span class="edu-date">Sep 2021 – Present</span>
                 </div>
-                <div class="contact-content-con">
-                    <div class="left-contact">
-                        <p>
-                            You Can Find My Contact Informations Below.
+                <div class="company">Çankaya University</div>
+                <p class="gpa">CGPA: 2.94</p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section fade-in">
+            <div class="section-header">
+                <h2>Selected Projects</h2>
+            </div>
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card card">
+                    <div class="project-media">
+                        <img src="img/helma.png" alt="Helma AI Project Demo"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">Oct 2025 – Present</div>
+                        <h3>Helma AI – AI-Powered Elderly Care</h3>
+                        <p>Developing a multimodal AI-powered mobile application for elderly care implementing emotion
+                            recognition using video, audio, and text inputs.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://helma-ai.com" target="_blank" class="text-link">helma-ai.com ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card card">
+                    <div class="project-media">
+                        <img src="img/tinyvoice.png" alt="TinyVoice Project Demo"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">Nov 2025 – Jan 2026</div>
+                        <h3>TinyVoice – Keyword Spotting System</h3>
+                        <p>Developed an edge AI-based keyword spotting system optimized for microcontrollers by training
+                            a DS-CNN model on Google Speech Commands dataset for ESP32 deployment.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Edge AI</span>
+                            <span class="tech-tag">Deep Learning</span>
+                            <span class="tech-tag">ESP32</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ackgz0/tinyVoiceKWS" target="_blank"
+                                class="text-link">Repository ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card card">
+                    <div class="project-media">
+                        <img src="img/pushorperish.jpg" alt="Push Or Perish Project Demo"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">Oct 2024 – Jan 2025</div>
+                        <h3>Push Or Perish</h3>
+                        <p>Developed a reflex-based game on the MSP430G2553 using a 7-segment display, two buttons, and
+                            two LEDs. Implemented countdown and winner logic in an embedded environment. Written in
+                            Assembly.
                         </p>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Location</span>
-                                </div>
-                                <p>
-                                    : Ankara, Turkiye
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-envelope"></i>
-                                    <span>Email</span>
-                                </div>
-                                <p>
-                                    <span>: sarikartalbarkin@gmail.com</span>
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-user-graduate"></i>
-                                    <span>Education</span>
-                                </div>
-                                <p>
-                                    <span>: Çankaya University, Computer Engineering</span>
-                                </p>
-                            </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">MSP430</span>
+                            <span class="tech-tag">Assembly</span>
                         </div>
-                        <div class="contact-icons">
-                            <div class="contact-icon">
-                                <a href="https://www.instagram.com/barkinsarikartal.mpeg" target="_blank">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://twitter.com/barkinsanazor" target="_blank">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://github.com/barkinsarikartal" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/barkinsarikartal" target="_blank">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="https://www.youtube.com/@barkinssss" target="_blank">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </div>
+                        <div class="project-links">
+                            <a href="https://github.com/29ardayildiz/Push_Or_Perish" target="_blank"
+                                class="text-link">Repository ↗</a>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card card">
+                    <div class="project-media">
+                        <img src="img/retrocam.png" alt="Retrocam Project Demo"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">Oct 2024 – Dec 2024</div>
+                        <h3>ESP32 Based Retro Camera</h3>
+                        <p>A compact digital camera implementation using the Seeed Studio XIAO ESP32-S3 Sense and a 2.0"
+                            TFT LCD display. Features high-res photo capture and AVI video recording with audio.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">ESP32-S3</span>
+                            <span class="tech-tag">FreeRTOS</span>
+                            <span class="tech-tag">C++</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/barkinsarikartal/XIAO-ESP32S3-Sense_Retro_Camera"
+                                target="_blank" class="text-link">Repository ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section fade-in">
+            <div class="section-header">
+                <h2>Skills & Technologies</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-tags">
+                        <span>C</span>
+                        <span>C++</span>
+                        <span>Assembly</span>
+                        <span>Java</span>
+                        <span>Python</span>
+                        <span>C#</span>
+                        <span>JavaScript</span>
+                        <span>SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Embedded Systems</h3>
+                    <div class="skill-tags">
+                        <span>ESP32</span>
+                        <span>ESP-IDF</span>
+                        <span>FreeRTOS</span>
+                        <span>PlatformIO</span>
+                        <span>Arduino</span>
+                        <span>Embedded C</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Protocols & Tools</h3>
+                    <div class="skill-tags">
+                        <span>UART / SPI / I2C / I2S</span>
+                        <span>TCP/IP / UDP / HTTP</span>
+                        <span>Wi-Fi / Bluetooth / ESP-NOW</span>
+                        <span>Git</span>
+                        <span>Linux</span>
+                        <span>EasyEDA</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Domains</h3>
+                    <div class="skill-tags">
+                        <span>IoT Systems</span>
+                        <span>Edge AI</span>
+                        <span>TinyML</span>
+                        <span>Flutter</span>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section id="additional" class="section fade-in">
+            <div class="section-header">
+                <h2>Additional</h2>
+            </div>
+            <div class="additional-info grid-2-col">
+                <div class="info-box card">
+                    <h3>Languages</h3>
+                    <p><strong>English:</strong> C1</p>
+                    <p><strong>German:</strong> A2</p>
+                </div>
+                <div class="info-box card">
+                    <h3>Exam Results</h3>
+                    <p><strong>ALES:</strong> 88 (Nov 2025)</p>
+                    <p><strong>YDS:</strong> 75 (Nov 2025)</p>
+                    <p><strong>YKS:</strong> 22.138 (Jun 2021)</p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <div class="controls">
-        <div class="control active-btn" data-id="home" >
-            <i class="fas fa-home"></i>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Barkın Sarıkartal. All rights reserved.</p>
         </div>
-        <div class="control" data-id="about">
-            <i class="fas fa-user"></i>
-        </div>
-        <div class="control" data-id="portfolio">
-            <i class="fas fa-briefcase"></i>
-        </div>
-        <div class="control" data-id="contact">
-            <i class="fas fa-envelope-open"></i>
-        </div>
-    </div>
-    <div class="theme-btn">
-        <i class="fas fa-adjust"></i>
-    </div>
+    </footer>
+
     <script src="app.js"></script>
 </body>
+
 </html>
