@@ -52,7 +52,7 @@
                         impact.</p>
                 </div>
                 <div class="hero-actions">
-                    <a href="BARKIN-SARIKARTAL-CV.pdf" target="_blank" class="btn primary-btn">Download CV</a>
+                    <a href="BARKIN-SARIKARTAL-CV-WEBPAGE.pdf" target="_blank" class="btn primary-btn">Download CV</a>
                     <a href="https://github.com/barkinsarikartal" target="_blank" class="btn secondary-btn">GitHub</a>
                     <a href="mailto:sarikartalbarkin@gmail.com" class="btn secondary-btn">Contact</a>
                 </div>
@@ -91,17 +91,16 @@
                         <ul class="task-list">
                             <p>Working as a part-time developer in the IT Department, contributing to university-level
                                 system development.</p>&nbsp;
-                            <li><strong>Smart School Bus Tracking System:</strong> Developed a smart bus access and
-                                tracking system using ESP32, SIM7600 4G module, interacting with university servers
-                                via REST API.</li>
-                            <li><strong>RFID-Based University Access Control System:</strong> Developed an
-                                RFID-based access control system, in operation since Jan 2024.</li>
+                            <li><a href="#project-fleet-tracker" class="project-jump-link"><strong>Fleet Tracking
+                                        System</strong></a></li>
+                            <li><a href="#project-card-reader" class="project-jump-link"><strong>Handheld RFID Card
+                                        Reader</strong></a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-date">Sep 2024 – Dec 2024</div>
+                    <div class="timeline-date">Sep 2023 – Dec 2023</div>
                     <div class="timeline-content card">
                         <h3>Instructor of Electronic Programming and IoT</h3>
                         <div class="company">Deneyap Türkiye</div>
@@ -132,9 +131,10 @@
             <div class="section-header">
                 <h2>Selected Projects</h2>
             </div>
-            <div class="projects-grid">
+            <h3 class="subsection-title" style="margin-bottom: 1.5rem;">Ongoing Projects</h3>
+            <div class="projects-grid" style="margin-bottom: 4rem;">
 
-                <!-- Project 1 -->
+                <!-- Project: Helma AI -->
                 <div class="project-card card">
                     <div class="project-media">
                         <img src="img/helma.png" alt="Helma AI Project Demo"
@@ -156,7 +156,107 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- Project: Fleet Tracker -->
+                <div id="project-fleet-tracker" class="project-card card">
+                    <div class="project-media">
+                        <img src="img/fleettracker.jpg" alt="Fleet Tracker for Çankaya University"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">Jul 2024 – Present</div>
+                        <h3>Fleet Tracking System for Çankaya University</h3>
+                        <p>Developed a live tracking system for the university's bus fleet. The device allows real-time
+                            location monitoring for students and staff, while an integrated RFID validator ensures that
+                            only registered members can access the transportation network.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">ESP32</span>
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">SIM7600</span>
+                            <span class="tech-tag">PCB Design - EasyEDA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Xiao Camera -->
+                <div class="project-card card">
+                    <div class="project-media">
+                        <img src="img/retrocam.png" alt="Retrocam Project Demo"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">Feb 2026 – Present</div>
+                        <h3>XIAO ESP32S3 Sense Retro Camera</h3>
+                        <p>A compact retro-styled digital camera built on the Seeed Studio XIAO ESP32S3 Sense. Captures
+                            HD photos and MJPEG video with audio, featuring a live TFT viewfinder, an encoder-driven UI
+                            with an on-device gallery, Timelapse, and a Wi-Fi file manager. Built with a modular
+                            FreeRTOS architecture.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">ESP32-S3</span>
+                            <span class="tech-tag">FreeRTOS</span>
+                            <span class="tech-tag">C++</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/barkinsarikartal/XIAO-ESP32S3-Sense_Retro_Camera"
+                                target="_blank" class="text-link">Repository ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h3 class="subsection-title" style="margin-bottom: 1.5rem;">Completed Projects</h3>
+            <div class="projects-grid" style="margin-bottom: 4rem;">
+
+                <!-- Project: Card Reader -->
+                <div id="project-card-reader" class="project-card card">
+                    <div class="project-media">
+                        <img src="img/cardreader.jpg" alt="Handheld RFID Card Reader for Çankaya University"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">Jul 2024 – Jan 2025</div>
+                        <h3>Handheld RFID Card Reader for Çankaya University</h3>
+                        <p>Developed a Wi-Fi-enabled handheld RFID validator terminal for security guards at the
+                            university's main gate. The device periodically syncs a local database for offline
+                            verification, logs scanned IDs locally, and batches reports back to the university servers.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">ESP32</span>
+                            <span class="tech-tag">C++</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Weather Station -->
+                <div class="project-card card">
+                    <div class="project-media">
+                        <img src="img/weatherstation.jpg" alt="ESP32 e-Paper Weather Station"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">Jan 2026</div>
+                        <h3>ESP32 e-Paper Weather Station</h3>
+                        <p>A low-power weather station built with an ESP32 and a Waveshare 1.54" tri-color e-Paper
+                            display. Fetches real-time weather data while heavily utilizing deep sleep optimization and
+                            silent fail mechanisms to maximize battery longevity.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">ESP32</span>
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">OpenSCAD</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/barkinsarikartal/ESP32_e-Paper_Weather_Station" target="_blank"
+                                class="text-link">Repository ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h3 class="subsection-title" style="margin-bottom: 1.5rem;">Academic Projects</h3>
+            <div class="projects-grid">
+
+                <!-- Project: TinyVoice -->
                 <div class="project-card card">
                     <div class="project-media">
                         <img src="img/tinyvoice.png" alt="TinyVoice Project Demo"
@@ -165,6 +265,7 @@
                     <div class="project-info">
                         <div class="project-meta">Nov 2025 – Jan 2026</div>
                         <h3>TinyVoice – Keyword Spotting System</h3>
+                        <div class="project-course">CENG 481 - Artificial Neural Networks</div>
                         <p>Developed an edge AI-based keyword spotting system optimized for microcontrollers by training
                             a DS-CNN model on Google Speech Commands dataset for ESP32 deployment.</p>
                         <div class="tech-stack">
@@ -179,7 +280,7 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
+                <!-- Project: Push Or Perish -->
                 <div class="project-card card">
                     <div class="project-media">
                         <img src="img/pushorperish.jpg" alt="Push Or Perish Project Demo"
@@ -188,6 +289,7 @@
                     <div class="project-info">
                         <div class="project-meta">Oct 2024 – Jan 2025</div>
                         <h3>Push Or Perish</h3>
+                        <div class="project-course">CENG329 - Microprocessors</div>
                         <p>Developed a reflex-based game on the MSP430G2553 using a 7-segment display, two buttons, and
                             two LEDs. Implemented countdown and winner logic in an embedded environment. Written in
                             Assembly.
@@ -203,25 +305,29 @@
                     </div>
                 </div>
 
-                <!-- Project 4 -->
+                <!-- Project: Realistic Horror Game -->
                 <div class="project-card card">
                     <div class="project-media">
-                        <img src="img/retrocam.png" alt="Retrocam Project Demo"
+                        <img src="img/horrorgame.jpg" alt="Realistic Horror Game"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     </div>
                     <div class="project-info">
-                        <div class="project-meta">Oct 2024 – Dec 2024</div>
-                        <h3>ESP32 Based Retro Camera</h3>
-                        <p>A compact digital camera implementation using the Seeed Studio XIAO ESP32-S3 Sense and a 2.0"
-                            TFT LCD display. Features high-res photo capture and AVI video recording with audio.</p>
+                        <div class="project-meta">Nov 2023 – Jan 2024</div>
+                        <h3>Realistic Horror Game</h3>
+                        <div class="project-course">CENG241 - Object Oriented Programming</div>
+                        <p>A 3-minute interactive horror game demo featuring multiple endings based on user choices.
+                            Developed using Unreal Engine and C++, effectively demonstrating core Object-Oriented
+                            Programming principles.</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">ESP32-S3</span>
-                            <span class="tech-tag">FreeRTOS</span>
+                            <span class="tech-tag">Unreal Engine</span>
                             <span class="tech-tag">C++</span>
+                            <span class="tech-tag">OOP</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/barkinsarikartal/XIAO-ESP32S3-Sense_Retro_Camera"
-                                target="_blank" class="text-link">Repository ↗</a>
+                            <a href="https://github.com/Cagdas-Gulec/UE4_Horror_Game_Project" target="_blank"
+                                class="text-link">Repository ↗</a>
+                            <a href="https://youtu.be/FLW4SrO-ktk?si=yliiBy_dkmzTpRz6" target="_blank" class="text-link"
+                                style="margin-left: 1rem;">Video Demo ↗</a>
                         </div>
                     </div>
                 </div>

@@ -391,11 +391,20 @@ main {
     font-size: 1.25rem;
 }
 
+.project-course {
+    color: var(--accent-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
+
 .project-info p {
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
     flex: 1;
+    text-align: justify;
 }
 
 .tech-stack {
@@ -495,6 +504,29 @@ footer {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Project Jump Links & Highlights */
+.project-jump-link {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+.project-jump-link:hover {
+    color: var(--accent-color);
+    text-decoration-color: var(--accent-color);
+}
+
+@keyframes highlightPulse {
+    0% { border-color: var(--accent-color); box-shadow: 0 0 15px var(--accent-color); transform: scale(1.01); }
+    100% { border-color: var(--border-color); box-shadow: var(--shadow); transform: scale(1); }
+}
+
+.project-card.highlight {
+    animation: highlightPulse 1.5s ease-out;
 }
 
 /* Responsive */
