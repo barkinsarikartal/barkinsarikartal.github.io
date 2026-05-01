@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Intersection Observer for Fade-In Animations
     const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.15 // Trigger when 15% of the element is visible
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.02 // Lower threshold to ensure tall elements trigger on mobile
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
