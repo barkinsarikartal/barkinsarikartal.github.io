@@ -17,11 +17,17 @@
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">BS.</div>
-            <div class="nav-links">
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
+                <a href="gallery.html">Gallery</a>
                 <button id="theme-toggle" aria-label="Toggle Dark Mode">
                     <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
@@ -45,9 +51,9 @@
         <section id="about" class="hero section fade-in">
             <div class="hero-content">
                 <h1 class="title">Barkın <br />SARIKARTAL</h1>
-                <p class="subtitle">Computer Engineering Student & Developer</p>
+                <p class="subtitle">Computer Engineering Graduate & Developer</p>
                 <div class="hero-text">
-                    <p>I am a computer engineering student with a strong focus on embedded systems, IoT applications,
+                    <p>I am a computer engineering graduate with a strong focus on embedded systems, IoT applications,
                         and AI integrations. I enjoy building hardware and software solutions that make a real-world
                         impact.</p>
                 </div>
@@ -74,22 +80,12 @@
 
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">Jun 2025 – Jul 2025</div>
+                    <div class="timeline-date">Mar 2024 - June 2026</div>
                     <div class="timeline-content card">
-                        <h3>Intern</h3>
-                        <div class="company">ASELSAN</div>
-                        <p>Worked on wireless communication protocols such as Wi-Fi, Bluetooth Classic and ESP-NOW with
-                            the ESP32 microcontroller and created fundamental test applications.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Mar 2024 – Present</div>
-                    <div class="timeline-content card">
-                        <h3>IT Department – Part-Time Student</h3>
+                        <h3>IT Department - Part-Time Student</h3>
                         <div class="company">Çankaya University</div>
                         <ul class="task-list">
-                            <p>Working as a part-time developer in the IT Department, contributing to university-level
+                            <p>Worked as a part-time developer in the IT Department, contributed to university-level
                                 system development.</p>&nbsp;
                             <li><a href="#project-fleet-tracker" class="project-jump-link"><strong>Fleet Tracking
                                         System</strong></a></li>
@@ -100,7 +96,17 @@
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-date">Sep 2023 – Dec 2023</div>
+                    <div class="timeline-date">Jun 2025 - Jul 2025</div>
+                    <div class="timeline-content card">
+                        <h3>Intern</h3>
+                        <div class="company">ASELSAN</div>
+                        <p>Worked on wireless communication protocols such as Wi-Fi, Bluetooth Classic and ESP-NOW with
+                            the ESP32 microcontroller and created fundamental test applications.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2023 - Dec 2023</div>
                     <div class="timeline-content card">
                         <h3>Instructor of Electronic Programming and IoT</h3>
                         <div class="company">Deneyap Türkiye</div>
@@ -119,10 +125,10 @@
             <div class="card edu-card">
                 <div class="edu-header">
                     <h3>B.Sc. in Computer Engineering (100% Scholarship)</h3>
-                    <span class="edu-date">Sep 2021 – Present</span>
+                    <span class="edu-date">Sep 2021 - June 2026</span>
                 </div>
                 <div class="company">Çankaya University</div>
-                <p class="gpa">CGPA: 2.94</p>
+                <p class="gpa">CGPA: 3.04</p>
             </div>
         </section>
 
@@ -134,27 +140,33 @@
             <h3 class="subsection-title" style="margin-bottom: 1.5rem;">Ongoing Projects</h3>
             <div class="projects-grid" style="margin-bottom: 4rem;">
 
-                <!-- Project: Helma AI -->
+                <!-- Project: PortBell -->
                 <div class="project-card card">
                     <div class="project-media">
-                        <img src="img/helma.png" alt="Helma AI Project Demo"
+                        <img src="img/portbell.jpg" alt="Helma AI Project Demo"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     </div>
                     <div class="project-info">
-                        <div class="project-meta">Oct 2025 – Present</div>
-                        <h3>Helma AI – AI-Powered Elderly Care</h3>
-                        <p>Developing a multimodal AI-powered mobile application for elderly care implementing emotion
-                            recognition using video, audio, and text inputs.</p>
+                        <div class="project-meta">June 2026 - Present</div>
+                        <h3>PortBell</h3>
+                        <p>Low-power ESP32 desktop vessel tracker with scheduled updates, local status storage, and port
+                            approach alerts.</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">ESP32</span>
+                            <span class="tech-tag">FreeRTOS</span>
+                            <span class="tech-tag">C++</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://helma-ai.com" target="_blank" class="text-link">helma-ai.com ↗</a>
+                            <a href="https://github.com/barkinsarikartal/PortBell" target="_blank"
+                                class="text-link">Repository ↗</a>
                         </div>
                     </div>
                 </div>
+
+            </div>
+
+            <h3 class="subsection-title" style="margin-bottom: 1.5rem;">Completed Projects</h3>
+            <div class="projects-grid" style="margin-bottom: 4rem;">
 
                 <!-- Project: Fleet Tracker -->
                 <div id="project-fleet-tracker" class="project-card card">
@@ -163,7 +175,7 @@
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     </div>
                     <div class="project-info">
-                        <div class="project-meta">Jul 2024 – Present</div>
+                        <div class="project-meta">Jul 2024 - June 2026</div>
                         <h3>Fleet Tracking System for Çankaya University</h3>
                         <p>Developed a live tracking system for the university's bus fleet. The device allows real-time
                             location monitoring for students and staff, while an integrated RFID validator ensures that
@@ -177,14 +189,34 @@
                     </div>
                 </div>
 
-                <!-- Project: Xiao Camera -->
-                <div class="project-card card">
+                <!-- Project: Card Reader -->
+                <div id="project-card-reader" class="project-card card">
                     <div class="project-media">
-                        <img src="img/retrocam.png" alt="Retrocam Project Demo"
+                        <img src="img/cardreader.jpg" alt="Handheld RFID Card Reader for Çankaya University"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     </div>
                     <div class="project-info">
-                        <div class="project-meta">Feb 2026 – Present</div>
+                        <div class="project-meta">Jul 2024 - Jan 2025</div>
+                        <h3>Handheld RFID Card Reader for Çankaya University</h3>
+                        <p>Developed a Wi-Fi-enabled handheld RFID validator terminal for security guards at the
+                            university's main gate. The device periodically syncs a local database for offline
+                            verification, logs scanned IDs locally, and batches reports back to the university servers.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">ESP32</span>
+                            <span class="tech-tag">C++</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Xiao Camera -->
+                <div class="project-card card">
+                    <div class="project-media">
+                        <img src="img/retrocam.jpg" alt="Retrocam Project Demo"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">Feb 2026 - May 2026</div>
                         <h3>XIAO ESP32S3 Sense Retro Camera</h3>
                         <p>A compact retro-styled digital camera built on the Seeed Studio XIAO ESP32S3 Sense. Captures
                             HD photos and MJPEG video with audio, featuring a live TFT viewfinder, an encoder-driven UI
@@ -202,27 +234,24 @@
                     </div>
                 </div>
 
-            </div>
-
-            <h3 class="subsection-title" style="margin-bottom: 1.5rem;">Completed Projects</h3>
-            <div class="projects-grid" style="margin-bottom: 4rem;">
-
-                <!-- Project: Card Reader -->
-                <div id="project-card-reader" class="project-card card">
+                <!-- Project: Helma AI -->
+                <div class="project-card card">
                     <div class="project-media">
-                        <img src="img/cardreader.jpg" alt="Handheld RFID Card Reader for Çankaya University"
+                        <img src="img/helma.png" alt="Helma AI Project Demo"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     </div>
                     <div class="project-info">
-                        <div class="project-meta">Jul 2024 – Jan 2025</div>
-                        <h3>Handheld RFID Card Reader for Çankaya University</h3>
-                        <p>Developed a Wi-Fi-enabled handheld RFID validator terminal for security guards at the
-                            university's main gate. The device periodically syncs a local database for offline
-                            verification, logs scanned IDs locally, and batches reports back to the university servers.
-                        </p>
+                        <div class="project-meta">Oct 2025 - June 2026</div>
+                        <h3>Helma AI - AI-Powered Elderly Care</h3>
+                        <p>Developing a multimodal AI-powered mobile application for elderly care implementing emotion
+                            recognition using video, audio, and text inputs.</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">ESP32</span>
-                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://helma-ai.com" target="_blank" class="text-link">helma-ai.com ↗</a>
                         </div>
                     </div>
                 </div>
@@ -263,8 +292,8 @@
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     </div>
                     <div class="project-info">
-                        <div class="project-meta">Nov 2025 – Jan 2026</div>
-                        <h3>TinyVoice – Keyword Spotting System</h3>
+                        <div class="project-meta">Nov 2025 - Jan 2026</div>
+                        <h3>TinyVoice - Keyword Spotting System</h3>
                         <div class="project-course">CENG 481 - Artificial Neural Networks</div>
                         <p>Developed an edge AI-based keyword spotting system optimized for microcontrollers by training
                             a DS-CNN model on Google Speech Commands dataset for ESP32 deployment.</p>
@@ -287,7 +316,7 @@
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     </div>
                     <div class="project-info">
-                        <div class="project-meta">Oct 2024 – Jan 2025</div>
+                        <div class="project-meta">Oct 2024 - Jan 2025</div>
                         <h3>Push Or Perish</h3>
                         <div class="project-course">CENG329 - Microprocessors</div>
                         <p>Developed a reflex-based game on the MSP430G2553 using a 7-segment display, two buttons, and
@@ -312,7 +341,7 @@
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     </div>
                     <div class="project-info">
-                        <div class="project-meta">Nov 2023 – Jan 2024</div>
+                        <div class="project-meta">Nov 2023 - Jan 2024</div>
                         <h3>Realistic Horror Game</h3>
                         <div class="project-course">CENG241 - Object Oriented Programming</div>
                         <p>A 3-minute interactive horror game demo featuring multiple endings based on user choices.
@@ -403,7 +432,7 @@
                 </div>
                 <div class="info-box card">
                     <h3>Exam Results</h3>
-                    <p><strong>ALES:</strong> 88 (Nov 2025)</p>
+                    <p><strong>ALES:</strong> 89 (May 2026)</p>
                     <p><strong>YDS:</strong> 75 (Nov 2025)</p>
                     <p><strong>YKS:</strong> 22.138 (Jun 2021)</p>
                 </div>

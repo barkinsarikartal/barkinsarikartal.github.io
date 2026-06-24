@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Camera Gallery - Barkın SARIKARTAL</title>
+    <meta name="description" content="Photos captured with the XIAO ESP32S3 Sense Retro Camera.">
+    <!-- Google Fonts for Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/gallery.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <span class="logo">BS.</span>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Gallery Header -->
+        <section class="gallery-header section">
+            <h1>Retro Camera Gallery</h1>
+            <p class="text-secondary">Photos captured with the
+                <a href="https://github.com/barkinsarikartal/XIAO-ESP32S3-Sense_Retro_Camera" target="_blank">XIAO
+                    ESP32S3 Sense Retro Camera</a>.
+            </p>
+            <p class="gallery-photo-count text-secondary" id="photo-count-label"></p>
+        </section>
+
+        <!-- Gallery Grid -->
+        <div id="gallery-photos" class="gallery-grid">
+            <!-- Photos will be injected by JS -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="gallery-empty" class="gallery-empty" style="display: none;">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            <p>No photos found.</p>
+        </div>
+    </main>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox" style="display: none;">
+        <button class="lightbox-close" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Previous">&#8249;</button>
+        <button class="lightbox-nav lightbox-next" aria-label="Next">&#8250;</button>
+        <div class="lightbox-content">
+            <!-- Image will be injected here -->
+        </div>
+        <div class="lightbox-caption"></div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Barkın Sarıkartal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="gallery.js"></script>
+</body>
+
+</html>

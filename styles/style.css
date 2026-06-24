@@ -546,21 +546,111 @@ footer {
     animation: highlightPulse 1.5s ease-out;
 }
 
+/* Hamburger Menu (hidden on desktop) */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--text-primary);
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--card-bg);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5rem 2rem 2rem;
+        gap: 0.25rem;
+        border-left: 1px solid var(--border-color);
+        transition: right 0.3s ease;
+        box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .nav-links.open {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+        padding: 0.75rem 0;
+        width: 100%;
+    }
+
+    #theme-toggle {
+        margin-top: 1rem;
+    }
+
     .hero {
         flex-direction: column-reverse;
         text-align: center;
         gap: 2rem;
         padding-top: 2rem;
+        min-height: auto;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.15rem;
+    }
+
+    .hero-text {
+        margin: 0 auto 2rem;
+        font-size: 0.95rem;
     }
 
     .hero-actions {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
     }
 
-    .hero-text {
-        margin: 0 auto 2.5rem;
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .profile-placeholder {
+        width: 200px;
+        height: 200px;
     }
 
     .timeline-item {
