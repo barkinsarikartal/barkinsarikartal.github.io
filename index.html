@@ -25,8 +25,8 @@
             </button>
             <div class="nav-links" id="nav-links">
                 <a href="#about">About</a>
-                <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
                 <a href="#skills">Skills</a>
                 <a href="gallery.html">Gallery</a>
                 <button id="theme-toggle" aria-label="Toggle Dark Mode">
@@ -54,13 +54,12 @@
                 <h1 class="title">Barkın <br />SARIKARTAL</h1>
                 <p class="subtitle">Computer Engineering Graduate & Developer</p>
                 <div class="hero-text">
-                    <p>I am a computer engineering graduate with a strong focus on embedded systems, IoT applications,
-                        and AI integrations. I enjoy building hardware and software solutions that make a real-world
-                        impact.</p>
+                    <p>I build web and mobile applications alongside embedded systems. My work includes published games, real-time tracking devices, and AI-powered applications. I use AI tools throughout development, with responsibility for planning, code review, testing, and deployment.</p>
                 </div>
                 <div class="hero-actions">
                     <a href="BARKIN-SARIKARTAL-CV-WEBPAGE.pdf" target="_blank" class="btn primary-btn">Download CV</a>
                     <a href="https://github.com/barkinsarikartal" target="_blank" class="btn secondary-btn">GitHub</a>
+                    <a href="https://www.linkedin.com/in/barkinsarikartal/" target="_blank" rel="noopener noreferrer" class="btn secondary-btn">LinkedIn</a>
                     <a href="mailto:sarikartalbarkin@gmail.com" class="btn secondary-btn">Contact</a>
                 </div>
             </div>
@@ -73,143 +72,72 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="section fade-in">
-            <div class="section-header">
-                <h2>Experience</h2>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Mar 2024 - June 2026</div>
-                    <div class="timeline-content card">
-                        <h3>IT Department - Part-Time Student</h3>
-                        <div class="company">Çankaya University</div>
-                        <ul class="task-list">
-                            <p>Worked as a part-time developer in the IT Department, contributed to university-level
-                                system development.</p>&nbsp;
-                            <li><a href="#project-fleet-tracker" class="project-jump-link"><strong>Fleet Tracking
-                                        System</strong></a></li>
-                            <li><a href="#project-card-reader" class="project-jump-link"><strong>Handheld RFID Card
-                                        Reader</strong></a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Jun 2025 - Jul 2025</div>
-                    <div class="timeline-content card">
-                        <h3>Intern</h3>
-                        <div class="company">ASELSAN</div>
-                        <p>Worked on wireless communication protocols such as Wi-Fi, Bluetooth Classic and ESP-NOW with
-                            the ESP32 microcontroller and created fundamental test applications.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Sep 2023 - Dec 2023</div>
-                    <div class="timeline-content card">
-                        <h3>Instructor of Electronic Programming and IoT</h3>
-                        <div class="company">Deneyap Türkiye</div>
-                        <p>Followed a 14-week training program for middle and high school students. A project exhibition
-                            was held showcasing projects where students applied what they had learned.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="section fade-in">
-            <div class="section-header">
-                <h2>Education</h2>
-            </div>
-            <div class="card edu-card">
-                <div class="edu-header">
-                    <h3>B.Sc. in Computer Engineering (100% Scholarship)</h3>
-                    <span class="edu-date">Sep 2021 - June 2026</span>
-                </div>
-                <div class="company">Çankaya University</div>
-                <p class="gpa">CGPA: 3.04</p>
-            </div>
-        </section>
-
         <!-- Projects Section -->
         <section id="projects" class="section fade-in">
-            <div class="section-header">
-                <h2>Selected Projects</h2>
-            </div>
-            <h3 class="subsection-title" style="margin-bottom: 1.5rem;">Ongoing Projects</h3>
+            <div class="section-header"><h2>Selected Projects</h2></div>
             <div class="projects-grid" style="margin-bottom: 4rem;">
-
-                <!-- Project: PortBell -->
+<div id="project-revumi" class="project-card card">
+<div class="project-media">
+<img class="project-preview" src="img/revumi-feature.png" alt="Revumi: Read your friends’ minds. A party game for 3 to 8 people." loading="lazy">
+</div>
+<div class="project-info">
+<div class="project-meta">Web &amp; Mobile</div>
+<h3>Revumi</h3>
+<p>A multiplayer party game where players answer questions, predict each other’s choices, and reveal results in sync. Built with real-time rooms and reconnection handling.</p>
+<div class="tech-stack">
+<span class="tech-tag">Vue 3</span>
+<span class="tech-tag">TypeScript</span>
+<span class="tech-tag">FastAPI</span>
+<span class="tech-tag">PostgreSQL</span>
+<span class="tech-tag">WebSockets</span>
+</div>
+<div class="project-links">
+<a class="text-link" href="https://revumi.fun" target="_blank" rel="noopener noreferrer">Web ↗</a> <a class="text-link" href="https://apps.apple.com/app/id6804407787" target="_blank" rel="noopener noreferrer">App Store ↗</a> <a class="text-link" href="https://play.google.com/store/apps/details?id=fun.revumi.app" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
+<a class="text-link" href="revumi.html">Project details →</a>
+</div>
+</div>
+</div>
+<div id="project-shyftel" class="project-card card">
+<div class="project-media">
+<img src="img/shyftel.png" alt="Shyftel game artwork" loading="lazy">
+</div>
+<div class="project-info">
+<div class="project-meta">Web &amp; Mobile</div>
+<h3>Shyftel</h3>
+<p>A survival game for web and mobile with daily seeded runs and leaderboards. The server replays submitted runs to verify scores.</p>
+<div class="tech-stack">
+<span class="tech-tag">TypeScript</span>
+<span class="tech-tag">Three.js</span>
+<span class="tech-tag">Capacitor</span>
+<span class="tech-tag">PostgreSQL</span>
+</div>
+<div class="project-links">
+<a class="text-link" href="https://shyftel.fun" target="_blank" rel="noopener noreferrer">Web ↗</a> <a class="text-link" href="https://apps.apple.com/app/shyftel/id6813096848" target="_blank" rel="noopener noreferrer">App Store ↗</a> <a class="text-link" href="https://play.google.com/store/apps/details?id=app.shyftel.game" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
+<a class="text-link" href="shyftel.html">Project details →</a>
+</div>
+</div>
+</div>
+                <!-- Project: Helma AI -->
                 <div class="project-card card">
                     <div class="project-media">
-                        <img src="img/portbell.jpg" alt="Helma AI Project Demo"
+                        <img src="img/helma.png" alt="Helma AI Project Demo"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     </div>
                     <div class="project-info">
-                        <div class="project-meta">June 2026 - Present</div>
-                        <h3>PortBell</h3>
-                        <p>Low-power ESP32 desktop vessel tracker with scheduled updates, local status storage, and port
-                            approach alerts.</p>
+                        <div class="project-meta">Oct 2025 - June 2026</div>
+                        <h3>Helma AI - AI-Powered Elderly Care</h3>
+                        <p>Contributed to a multimodal elderly-care application with emotion recognition from video, audio, and text. Worked with Flutter and FastAPI, and deployed the backend on AWS EC2 running Ubuntu 22.04.</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">ESP32</span>
-                            <span class="tech-tag">FreeRTOS</span>
-                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">AWS EC2</span>
+                            <span class="tech-tag">Ubuntu</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/barkinsarikartal/PortBell" target="_blank"
-                                class="text-link">Repository ↗</a>
+                            <a href="https://helma-ai.com" target="_blank" class="text-link">helma-ai.com ↗</a>
                         </div>
                     </div>
                 </div>
-
-            </div>
-
-            <h3 class="subsection-title" style="margin-bottom: 1.5rem;">Completed Projects</h3>
-            <div class="projects-grid" style="margin-bottom: 4rem;">
-
-                <!-- Project: Fleet Tracker -->
-                <div id="project-fleet-tracker" class="project-card card">
-                    <div class="project-media">
-                        <img src="img/fleettracker.jpg" alt="Fleet Tracker for Çankaya University"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">Jul 2024 - June 2026</div>
-                        <h3>Fleet Tracking System for Çankaya University</h3>
-                        <p>Developed a live tracking system for the university's bus fleet. The device allows real-time
-                            location monitoring for students and staff, while an integrated RFID validator ensures that
-                            only registered members can access the transportation network.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">ESP32</span>
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">SIM7600</span>
-                            <span class="tech-tag">PCB Design - EasyEDA</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: Card Reader -->
-                <div id="project-card-reader" class="project-card card">
-                    <div class="project-media">
-                        <img src="img/cardreader.jpg" alt="Handheld RFID Card Reader for Çankaya University"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">Jul 2024 - Jan 2025</div>
-                        <h3>Handheld RFID Card Reader for Çankaya University</h3>
-                        <p>Developed a Wi-Fi-enabled handheld RFID validator terminal for security guards at the
-                            university's main gate. The device periodically syncs a local database for offline
-                            verification, logs scanned IDs locally, and batches reports back to the university servers.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">ESP32</span>
-                            <span class="tech-tag">C++</span>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Project: Xiao Camera -->
                 <div class="project-card card">
                     <div class="project-media">
@@ -234,29 +162,45 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Project: Helma AI -->
-                <div class="project-card card">
+</div><h3 class="subsection-title" style="margin-bottom: 1.5rem;">Embedded &amp; IoT Projects</h3><div class="projects-grid" style="margin-bottom: 4rem;">                <!-- Project: Fleet Tracker -->
+                <div id="project-fleet-tracker" class="project-card card">
                     <div class="project-media">
-                        <img src="img/helma.png" alt="Helma AI Project Demo"
+                        <img src="img/fleettracker.jpg" alt="Fleet Tracker for Çankaya University"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     </div>
                     <div class="project-info">
-                        <div class="project-meta">Oct 2025 - June 2026</div>
-                        <h3>Helma AI - AI-Powered Elderly Care</h3>
-                        <p>Developing a multimodal AI-powered mobile application for elderly care implementing emotion
-                            recognition using video, audio, and text inputs.</p>
+                        <div class="project-meta">Jul 2024 - June 2026</div>
+                        <h3>Fleet Tracking System for Çankaya University</h3>
+                        <p>Developed a live tracking system for the university's bus fleet. The device allows real-time
+                            location monitoring for students and staff, while an integrated RFID validator ensures that
+                            only registered members can access the transportation network.</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">MongoDB</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://helma-ai.com" target="_blank" class="text-link">helma-ai.com ↗</a>
+                            <span class="tech-tag">ESP32</span>
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">SIM7600</span>
+                            <span class="tech-tag">PCB Design - EasyEDA</span>
                         </div>
                     </div>
                 </div>
-
+                <!-- Project: Card Reader -->
+                <div id="project-card-reader" class="project-card card">
+                    <div class="project-media">
+                        <img src="img/cardreader.jpg" alt="Handheld RFID Card Reader for Çankaya University"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">Jul 2024 - Jan 2025</div>
+                        <h3>Handheld RFID Card Reader for Çankaya University</h3>
+                        <p>Developed a Wi-Fi-enabled handheld RFID validator terminal for security guards at the
+                            university's main gate. The device periodically syncs a local database for offline
+                            verification, logs scanned IDs locally, and batches reports back to the university servers.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">ESP32</span>
+                            <span class="tech-tag">C++</span>
+                        </div>
+                    </div>
+                </div>
                 <!-- Project: Weather Station -->
                 <div class="project-card card">
                     <div class="project-media">
@@ -279,11 +223,7 @@
                                 class="text-link">Repository ↗</a>
                         </div>
                     </div>
-                </div>
-
-            </div>
-
-            <h3 class="subsection-title" style="margin-bottom: 1.5rem;">Academic Projects</h3>
+                </div></div>            <h3 class="subsection-title" style="margin-bottom: 1.5rem;">Academic Projects</h3>
             <div class="projects-grid">
 
                 <!-- Project: TinyVoice -->
@@ -365,6 +305,66 @@
             </div>
         </section>
 
+        <!-- Experience Section -->
+        <section id="experience" class="section fade-in">
+            <div class="section-header">
+                <h2>Experience</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Mar 2024 - June 2026</div>
+                    <div class="timeline-content card">
+                        <h3>IT Department - Part-Time Student</h3>
+                        <div class="company">Çankaya University</div>
+                        <ul class="task-list">
+                            <li>Worked with a teammate to design, develop, and deploy embedded devices used by the university, taking on engineering and team coordination responsibilities.</li>
+                            <li><a href="#project-fleet-tracker" class="project-jump-link"><strong>Fleet Tracking
+                                        System</strong></a></li>
+                            <li><a href="#project-card-reader" class="project-jump-link"><strong>Handheld RFID Card
+                                        Reader</strong></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Jun 2025 - Jul 2025</div>
+                    <div class="timeline-content card">
+                        <h3>Intern</h3>
+                        <div class="company">ASELSAN</div>
+                        <p>Worked on wireless communication protocols such as Wi-Fi, Bluetooth Classic and ESP-NOW with
+                            the ESP32 microcontroller and created fundamental test applications.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2023 - Dec 2023</div>
+                    <div class="timeline-content card">
+                        <h3>Instructor of Electronic Programming and IoT</h3>
+                        <div class="company">Deneyap Türkiye</div>
+                        <p>Taught electronic programming and IoT to middle and high school students over a 14-week program, guiding them through projects presented at a final exhibition.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section fade-in">
+            <div class="section-header">
+                <h2>Education</h2>
+            </div>
+            <div class="card edu-card">
+                <div class="edu-header">
+                    <h3>B.Sc. in Computer Engineering (100% Scholarship)</h3>
+                    <span class="edu-date">Sep 2021 - June 2026</span>
+                </div>
+                <div class="company">Çankaya University</div>
+                <p class="gpa">CGPA: 3.04</p>
+            </div>
+        </section>
+
+
+
         <!-- Skills Section -->
         <section id="skills" class="section fade-in">
             <div class="section-header">
@@ -381,6 +381,7 @@
                         <span>Python</span>
                         <span>C#</span>
                         <span>JavaScript</span>
+                        <span>TypeScript</span>
                         <span>SQL</span>
                     </div>
                 </div>
@@ -415,9 +416,39 @@
                         <span>IoT Systems</span>
                         <span>Edge AI</span>
                         <span>TinyML</span>
-                        <span>Flutter</span>
+
                     </div>
                 </div>
+<div class="skill-category">
+<h3>Web &amp; Mobile</h3>
+<div class="skill-tags">
+<span>Vue 3</span>
+<span>Flutter</span>
+<span>FastAPI</span>
+<span>Capacitor</span>
+<span>REST APIs</span>
+<span>WebSockets</span>
+</div>
+</div>
+<div class="skill-category">
+<h3>Databases &amp; Cloud</h3>
+<div class="skill-tags">
+<span>PostgreSQL</span>
+<span>AWS EC2</span>
+<span>Cloudflare</span>
+<span>Railway</span>
+</div>
+</div>
+<div class="skill-category">
+<h3>AI-Assisted Development &amp; Delivery</h3>
+<div class="skill-tags">
+<span>Codex</span>
+<span>Claude Code</span>
+<span>GitHub Actions</span>
+<span>Unit Testing</span>
+<span>CI</span>
+</div>
+</div>
             </div>
         </section>
 
