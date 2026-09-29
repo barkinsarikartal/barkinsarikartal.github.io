@@ -1,0 +1,36 @@
+/* Shared styles for standalone video resources; uses portfolio theme tokens. */
+.resource-nav { max-width: 1000px; }
+.resource-nav-actions { display:flex; align-items:center; gap:1.25rem; font-size:.875rem; }
+#resource-theme { font:inherit; color:var(--text-primary); background:var(--card-bg); border:1px solid var(--border-color); border-radius:99px; padding:.6rem .85rem; cursor:pointer; }
+.resource-main { max-width:840px; padding-top:9rem; }
+.resource-heading { margin-bottom:2.5rem; }
+.eyebrow { color:var(--accent-color); font-size:.85rem; font-weight:600; margin-bottom:1rem; }
+.resource-heading h1 { font-size:clamp(2rem,6vw,3.25rem); line-height:1.12; letter-spacing:-.045em; margin-bottom:1.2rem; }
+.resource-description { color:var(--text-secondary); line-height:1.75; max-width:62ch; }
+.resource-panel { background:var(--card-bg); border:1px solid var(--border-color); border-radius:18px; padding:1.75rem; }
+.panel-heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem; }
+.panel-heading h2, .resource-instructions h2 { font-size:1.2rem; margin:0; }
+#copy-prompt { font-family:inherit; font-size:.875rem; }
+#copy-prompt:disabled { opacity:.5; cursor:not-allowed; transform:none; }
+.resource-status { color:var(--text-secondary); font-size:.9rem; line-height:1.6; }
+#prompt-text { display:block; width:100%; min-height:320px; max-height:70vh; resize:vertical; margin-top:1rem; padding:1.25rem; font: .9rem/1.8 ui-monospace,SFMono-Regular,Consolas,monospace; color:var(--text-primary); background:var(--bg-color); border:1px solid var(--border-color); border-radius:10px; }
+#prompt-text[hidden] { display:none; }
+.resource-instructions { margin-top:2.5rem; }
+.resource-instructions ol { padding-left:1.3rem; margin-top:1.2rem; }
+.resource-instructions li { padding-left:.35rem; margin-bottom:.8rem; color:var(--text-secondary); }
+.resource-label { color:var(--text-secondary); font-size:.8rem; }
+.offer + .offer { border-top:1px solid var(--border-color); padding-top:1.5rem; margin-top:1.5rem; }
+.offer h3 { margin-bottom:.65rem; }
+.offer p, .offer dd { color:var(--text-secondary); }
+.offer dl { margin:1rem 0; }
+.offer dl div { margin-bottom:.7rem; }
+.offer dt { font-weight:600; font-size:.9rem; }
+.resource-note { margin-top:1.25rem; color:var(--text-secondary); font-size:.85rem; }
+.resource-footer { margin-top:3rem; padding:2rem 1rem; }
+.resource-footer p { margin-top:.4rem; }
+:focus-visible { outline:3px solid var(--accent-color); outline-offset:4px; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.skip-link { position:fixed; top:-100px; left:1rem; z-index:1100; padding:.7rem; background:var(--card-bg); }
+.skip-link:focus { top:.5rem; }
+@media(max-width:600px) { .resource-main { padding:7rem 1.25rem 1rem; } .resource-panel { padding:1.25rem; } .resource-nav { padding:1rem 1.25rem; } .resource-nav-actions { gap:.8rem; } }
+@media(prefers-reduced-motion:reduce) { *, *::before, *::after { transition:none !important; scroll-behavior:auto !important; } }

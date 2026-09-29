@@ -1,0 +1,84 @@
+Act as a product designer and frontend developer. Create an interactive visual identity explorer for my app as a single, self-contained HTML file with embedded CSS and JavaScript.
+
+APP BRIEF
+- App idea: [Describe your app in 1–3 sentences.]
+- Target audience: [Who will use it?]
+- Desired personality: [For example: playful, calm, bold, practical, warm.]
+- Appearance preference: [Dark, light, or let the brief guide the choice.]
+- Existing brand colors, if any: [HEX values, or “not decided”.]
+- Existing font, if any: [Font name, or “not decided”.]
+- Interface language: [For example: Turkish.]
+- Keep the app name and specific features hidden: [Yes / No.]
+
+If I attach screenshots, use them as visual references. Preserve any exact colors and fonts I provide. If you infer colors from an image, treat them as approximate rather than claiming they are exact.
+
+PURPOSE
+Build a practical page where I can compare colors, typography, and interface components before applying them to my app.
+
+The page should also look clear when displayed fullscreen on a computer monitor and filmed. Use large examples, short labels, and generous spacing.
+
+STRUCTURE
+Use a simple header with three tabs:
+1. Colors
+2. Typography
+3. Components
+
+Translate these labels into the requested interface language.
+
+Show one section at a time. Support switching sections with the tabs and the left/right arrow keys.
+
+1. COLORS
+- Show five large color swatches:
+  background, surface, accent, primary text, secondary text.
+- Display the corresponding HEX or RGBA values.
+- Include one large typography example that demonstrates the palette.
+- Provide three small accent-color controls: the primary choice and two suitable alternatives.
+- Changing the accent must update all relevant examples and displayed color values across the entire page.
+- Keep the layout unchanged while comparing colors.
+- Any explanatory text must remain accurate when the accent changes.
+
+2. TYPOGRAPHY
+- Show a large headline, a short body-text sample, and a secondary-text sample.
+- Make differences in size, weight, and hierarchy immediately visible.
+- Identify the font family and weights used.
+- Use concise sample copy appropriate to the app’s personality.
+- If no font is specified, use a system sans-serif stack for reliable offline rendering.
+- Do not load external fonts.
+
+3. COMPONENTS
+- Show a primary button, a secondary button, a disabled button, and a selectable pair of neutral options.
+- Include a simple card or input example if useful for this app.
+- Make selection states interactive and visually clear.
+- Use realistic component proportions and consistent corner radii.
+- Include emojis only if they suit the app’s personality.
+- Demo buttons should demonstrate local UI states without navigating away or pretending to perform real product actions.
+
+DESIGN DIRECTION
+Make this feel like a carefully composed design workspace.
+
+- Use typography, spacing, alignment, and color to create hierarchy.
+- Place content directly on the page whenever possible.
+- Reserve cards for actual component examples.
+- Use restrained separators and minimal navigation.
+- Keep labels short and descriptive.
+- Avoid unnecessary badges, nested panels, decorative gradients, glowing accents, heavy shadows, glass effects, and excessive pill-shaped containers.
+- Avoid generic marketing slogans and filler paragraphs.
+- Let the app brief determine the visual personality rather than applying a standard SaaS template.
+
+If the app name and features should remain hidden, use neutral sample text and omit logos, product names, and feature-specific screens.
+
+TECHNICAL REQUIREMENTS
+- Return one complete HTML document with embedded CSS and JavaScript.
+- No frameworks, build tools, external assets, network requests, or installation steps.
+- It must work by opening the saved HTML file directly in a browser.
+- Optimize the desktop layout for a 16:9 display.
+- Also support smaller windows without clipped content or horizontal overflow.
+- Use semantic HTML, accessible buttons, visible keyboard focus, and appropriate selected-state attributes.
+- Include a fullscreen button with graceful handling when fullscreen is unavailable.
+- Respect reduced-motion preferences.
+- Keep text readable against its background in all accent variants.
+- Use CSS variables for the palette and shared component styles.
+
+Before returning the result, check that the tabs, keyboard navigation, accent controls, displayed color values, and selectable components are consistent.
+
+Return only the complete HTML code in a single code block.

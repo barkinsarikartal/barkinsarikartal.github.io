@@ -1,0 +1,74 @@
+Act as a product designer and frontend developer. Turn my attached hand-drawn app sketches into polished, consistent interface concepts.
+
+PROJECT
+- App name: [Name, or “leave unnamed”.]
+- App purpose: [Briefly describe what the app does.]
+- Target audience: [Who will use it?]
+- Interface language: [Language.]
+- Target device: [Mobile / desktop / both.]
+- Visual direction: [Describe the desired style, or write “follow the attached design board”.]
+- Brand colors and font: [Provide exact values if known, or write “use the attached design reference”.]
+
+HOW TO INTERPRET THE ATTACHMENTS
+- Hand-drawn sketches define the screens, content, and main user actions.
+- An attached design board, HTML file, or style reference defines the visual language.
+- Preserve the sketches’ functional meaning while improving spacing, alignment, hierarchy, and proportions.
+- Do not reproduce the tablet, hand, stylus, camera perspective, drawing-app toolbar, or surrounding environment.
+- If a photo contains multiple complete screens, create a separate interface for each.
+- Ignore incomplete screen fragments at the edges of photos.
+- Treat landscape drawings or play symbols inside content areas as media placeholders, not literal interface decorations.
+
+CONTENT RULES
+- Preserve readable names, labels, numbers, and important actions from the sketches.
+- Correct obvious spelling mistakes without changing their meaning.
+- If something is unreadable, use a neutral placeholder and mention the assumption briefly.
+- Do not invent major features, extra screens, navigation bars, or account flows.
+- Necessary prototype navigation must remain separate from the app interface.
+- Use consistent sample data across related screens.
+
+VISUAL DESIGN
+- Follow exact supplied colors and font settings.
+- If an HTML design board is attached, inspect its CSS and reuse its design tokens.
+- Use a consistent system for typography, spacing, corner radii, buttons, and surfaces across every screen.
+- Keep the original emphasis: the most important content and primary action should remain obvious.
+- Use realistic mobile UI proportions and comfortably tappable controls.
+- Allow content to scroll when necessary instead of shrinking everything to fit.
+- Avoid decorative gradients, glowing borders, glass effects, excessive shadows, unnecessary badges, and nested cards unless explicitly present in the reference.
+- Do not turn the result into a marketing landing page or a presentation slide.
+
+OUTPUT
+Create a single self-contained HTML file with embedded CSS and JavaScript.
+
+The file should have two preview modes:
+1. An overview showing all screen concepts side by side.
+2. A focused view showing one selected screen at a larger size.
+
+Keep preview controls outside the app screens. Include a way to hide these controls for clean screen recording.
+
+For mobile concepts, use a consistent logical screen width around 390 CSS pixels. Scale the previews proportionally to fit the browser window without changing the internal layout.
+
+Use lightweight local interactions only where useful:
+- A choice can become selected.
+- A primary action can move to the next relevant concept screen.
+- A restart control can reset the demonstration.
+
+These are interface concepts using fixed sample data. Do not add a backend, authentication, network requests, or pretend to connect to real services.
+
+TECHNICAL REQUIREMENTS
+- No frameworks, installation steps, build tools, or external dependencies.
+- The file must work when opened directly in a browser.
+- Use system fonts unless a usable local font is supplied.
+- Use CSS or inline SVG for simple icons.
+- Use a clean local placeholder for media unless an image is supplied.
+- Use semantic buttons and visible keyboard focus states.
+- Prevent overlapping text, clipped controls, and accidental horizontal overflow.
+- Keep all screens visually consistent.
+
+Before returning the result, check:
+- Every complete sketch has a corresponding screen.
+- The important content and actions are preserved.
+- Colors and typography match the supplied reference.
+- Sample data remains consistent between screens.
+- Preview controls do not appear inside the app interface.
+
+Return a brief list of any assumptions, followed by the complete HTML in one code block.

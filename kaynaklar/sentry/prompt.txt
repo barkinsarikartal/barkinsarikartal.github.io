@@ -1,0 +1,36 @@
+Integrate Sentry into my existing project so I can discover and investigate errors after deployment.
+
+First, inspect the project to identify its languages, frameworks, package manager, frontend and backend entry points, and deployment setup. Check for an existing Sentry integration before making changes.
+
+Use the current official Sentry documentation for the detected stack. Implement the integration directly where you have access, following the project’s existing conventions.
+
+Requirements:
+
+1. Install and configure the appropriate official Sentry SDKs. If the project has both a frontend and a backend, configure each separately and explain whether separate Sentry projects are appropriate.
+
+2. Focus on error monitoring. Keep session replay, performance tracing, profiling, and other optional features disabled unless I request them.
+
+3. Capture supported unhandled errors automatically. Use manual exception capture only where it adds useful visibility, and avoid reporting the same error twice.
+
+4. Review what data could leave the application. Disable default PII collection and configure appropriate filtering and scrubbing for passwords, authentication tokens, cookies, authorization headers, sensitive query parameters, request bodies, and personal information. Do not assume the SDK’s defaults cover everything. Preserve useful, non-sensitive debugging context.
+
+5. Follow the project’s environment-variable conventions. Keep authentication tokens and other secrets out of source control and client bundles. Distinguish the client-visible Sentry DSN from secret credentials. Add clearly labeled placeholders to the example environment file without inventing credentials.
+
+6. Separate development and production environments. Keep local development events disabled by default, with an explicit way to enable them for testing. Add release information where the deployment setup supports it.
+
+7. For bundled frontend code, configure source maps if practical so stack traces point to the original source. Upload them securely during builds, keep upload credentials server-side or in CI secrets, and avoid publicly serving source maps unless the project intentionally does so.
+
+8. Provide a controlled, temporary way to trigger a test error. Do not add a publicly accessible crash endpoint or leave a test button in production. If you can access Sentry, verify that the event arrives in the intended project and environment and inspect its payload for sensitive data. Otherwise, give me exact verification steps and clearly state that delivery has not been verified.
+
+9. Run the relevant existing checks after implementation. Avoid unrelated refactoring or changes to application behavior. Do not deploy or change production settings unless I explicitly request it.
+
+If account setup, project creation, or credentials are needed, complete the independent implementation work first. Then explain exactly what I need to do in Sentry and where to configure the resulting values. Never ask me to paste secret tokens into the conversation.
+
+Finish with a concise summary of:
+- What you changed.
+- Which errors will be captured and any important limitations.
+- What I still need to configure.
+- How to trigger and locate the test event.
+- What was actually verified.
+
+Do not claim that every error will be captured or that the integration is working until there is evidence.
