@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>NVIDIA model deneme rehberi · Barkın Sarıkartal</title>
+<meta name="description" content="NVIDIA modellerini denemek için başlangıç rehberi, beş hazır prompt ve Python API örneği.">
+<link rel="stylesheet" href="../../styles/style.css">
+<link rel="stylesheet" href="../kaynaklar.css">
+<script src="../kaynaklar.js" defer></script>
+<link rel="stylesheet" href="rehber.css">
+<script src="rehber.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="navbar"><nav class="nav-content resource-nav" aria-label="Ana gezinme">
+<a class="logo" href="../../index.html" aria-label="Barkın Sarıkartal — Portfolyo">BS.</a>
+<div class="resource-nav-actions"><a href="../../index.html">Portfolyo ↗</a><button id="resource-theme" type="button" aria-label="Koyu temaya geç">Koyu tema</button></div>
+</nav></header>
+
+<main id="icerik" class="resource-main">
+<header class="resource-heading"><p class="eyebrow">NVIDIA · Başlangıç rehberi</p><h1>Bir model seç.<br>Bir fikir dene.</h1><p class="resource-description">Nereden başlayacağını bilmiyorsan: üç model seçeneği, beş hazır prompt ve ilk API isteğin burada.</p><p class="resource-note">Kaynak kontrolü: 1 Ekim 2026 · Model erişimi ve kullanım koşulları değişebilir.</p></header>
+<nav class="guide-nav" aria-label="Rehber bölümleri"><a href="#baslangic">Kurulum</a><a href="#modeller">Model seçimi</a><a href="#promptlar">5 prompt</a><a href="#karsilastir">Karşılaştır</a><a href="#api">Python örneği</a></nav>
+<section id="baslangic" class="resource-panel"><h2>1. Hesabını hazırla</h2><ol>
+<li><a href="https://build.nvidia.com/" target="_blank" rel="noopener noreferrer">NVIDIA Build’i aç</a> ve hesap oluştur ya da giriş yap.</li>
+<li>İstenirse e-posta doğrulamasını ve organizasyon bilgilerini tamamla. Kendi proje bilgilerini kullan.</li>
+<li>Telefon doğrulaması istenirse tamamla; API anahtarı oluştururken gerekebilir. Ekranlar hesap ve bölgeye göre farklılaşabilir.</li>
+<li>Bir modelin Playground bölümünü aç ve aşağıdaki metin promptlarından biriyle başla. Görsel promptu için görsel giriş destekleyen bir model seç.</li>
+</ol><p class="resource-note">Buluttaki denemeler için NVIDIA ekran kartına ihtiyacın yok. Ücretsiz erişim öğrenme ve prototip geliştirme içindir; sınırsız kullanım veya ücretsiz üretim altyapısı garantisi değildir. Gizli proje verilerini ve kişisel bilgileri deneme girdilerine ekleme.</p></section>
+<section id="modeller" class="resource-panel"><h2>2. Hangi modelle başlayayım?</h2><p class="resource-description">Bunlar başlangıç seçenekleri; bir performans sıralaması değil. Kartta Playground veya API erişimini kontrol et.</p>
+<ul class="model-list">
+<li><a href="https://build.nvidia.com/meta/llama-3_3-70b-instruct" target="_blank" rel="noopener noreferrer">Meta Llama 3.3 70B Instruct ↗</a><p>Özetleme, fikir geliştirme, JSON çıkarma ve basit kod sorularını bununla dene.</p></li>
+<li><a href="https://build.nvidia.com/models?search=nemotron" target="_blank" rel="noopener noreferrer">NVIDIA Nemotron modelleri ↗</a><p>Katalogda bir metin / reasoning modelini seçip aynı kod veya planlama sorusuna verdiği cevabı karşılaştır. Model kimliğini karttan al.</p></li>
+<li><a href="https://build.nvidia.com/meta/llama-3.2-90b-vision-instruct" target="_blank" rel="noopener noreferrer">Meta Llama 3.2 90B Vision Instruct ↗</a><p>Görsel yükleyip içeriği hakkında soru sormak için. Arayüz görsel yüklemeyi sunmuyorsa kartın görsel API örneğini kullan veya katalogdaki erişilebilir başka bir vision modeli seç.</p></li>
+</ul></section>
+<section id="promptlar"><h2>3. Kopyala ve dene</h2><p class="resource-description">Örnekler hazır girdiler içeriyor. Dördüncü promptta kendi ekran görüntünü ekle.</p>
+
+<article class="resource-panel prompt-card"><div class="panel-heading"><h3>1. Bir metni özetle</h3><button hidden type="button" class="btn primary-btn" data-copy="prompt-1">Promptu kopyala</button></div><p class="resource-note">Metin modeli · Llama ile başla</p><label class="sr-only" for="prompt-1">Bir metni özetle promptu</label><textarea id="prompt-1" readonly spellcheck="false">Aşağıdaki metni yalnızca içindeki bilgilere dayanarak Türkçe özetle.
+Çıktı: 1 cümlelik ana fikir, 3 önemli nokta ve metinde cevabı olmayan 1 soru.
+Sayıları ve tarihleri koru. Metinde bulunmayan bilgi ekleme.
+
+METİN:
+Bir öğrenci kulübü 12 Ekim’de 40 kişilik bir yazılım atölyesi düzenleyecek. Kayıtlar 8 Ekim’de kapanacak. Katılım ücretsiz, bilgisayar getirmek zorunlu. Atölyede Python ile veri analizi yapılacak. Mekân henüz açıklanmadı.</textarea><p class="copy-status" role="status"></p></article>
+<article class="resource-panel prompt-card"><div class="panel-heading"><h3>2. Kod hatasını bul</h3><button hidden type="button" class="btn primary-btn" data-copy="prompt-2">Promptu kopyala</button></div><p class="resource-note">Metin / kod modeli · Llama veya Nemotron ile dene</p><label class="sr-only" for="prompt-2">Kod hatasını bul promptu</label><textarea id="prompt-2" readonly spellcheck="false">Aşağıdaki Python kodunu incele. Hatanın nedenini Türkçe açıkla, en küçük düzeltmeyi yap ve beklenen sonuçlarıyla 3 test örneği ver.
+Gereksinim: Boş listede None, diğer listelerde aritmetik ortalama döndürülmeli. Sıfır değerleri hesaba katılmalı.
+
+def ortalama(sayilar):
+    return sum(sayilar) / len(sayilar)
+
+print(ortalama([]))
+
+Kodu gerçekten çalıştırmadıysan çalıştırdığını söyleme.</textarea><p class="copy-status" role="status"></p></article>
+<article class="resource-panel prompt-card"><div class="panel-heading"><h3>3. Fikrini küçük bir ürüne dönüştür</h3><button hidden type="button" class="btn primary-btn" data-copy="prompt-3">Promptu kopyala</button></div><p class="resource-note">Metin modeli</p><label class="sr-only" for="prompt-3">Fikrini küçük bir ürüne dönüştür promptu</label><textarea id="prompt-3" readonly spellcheck="false">Ürün fikrim: Ev arkadaşlarının ortak alışveriş listesini yönettiği bir uygulama.
+Hedef: Bir haftada denenebilecek ilk sürümün kapsamını çıkarmak.
+Türkçe yanıtla. Önce yaptığın varsayımları yaz; sonra yalnızca 3 temel özellik, 3 kapsam dışı özellik ve bir kullanıcı akışı öner.
+Her temel özellik için ölçülebilir bir kabul kriteri ekle. Kullanıcı sayısı veya gelir tahmini uydurma.</textarea><p class="copy-status" role="status"></p></article>
+<article class="resource-panel prompt-card"><div class="panel-heading"><h3>4. Görseli incele</h3><button hidden type="button" class="btn primary-btn" data-copy="prompt-4">Promptu kopyala</button></div><p class="resource-note">Görsel modeli · Llama 3.2 Vision; önce bir ekran görüntüsü yükle</p><label class="sr-only" for="prompt-4">Görseli incele promptu</label><textarea id="prompt-4" readonly spellcheck="false">Yüklediğim arayüz ekran görüntüsünü incele. Türkçe yanıtla.
+1. Ekranda doğrudan görebildiğin öğeleri listele.
+2. Okunabilirlik veya görsel hiyerarşi açısından 3 iyileştirme öner.
+3. Görselden anlaşılamayan etkileşimleri ayrı belirt.
+Okuyamadığın metni tahmin etme. Yalnızca ekran görüntüsüne bakarak butonların çalıştığını veya erişilebilirlik standartlarına tam uyulduğunu iddia etme.</textarea><p class="copy-status" role="status"></p></article>
+<article class="resource-panel prompt-card"><div class="panel-heading"><h3>5. Metinden düzenli veri çıkar</h3><button hidden type="button" class="btn primary-btn" data-copy="prompt-5">Promptu kopyala</button></div><p class="resource-note">Metin modeli</p><label class="sr-only" for="prompt-5">Metinden düzenli veri çıkar promptu</label><textarea id="prompt-5" readonly spellcheck="false">Aşağıdaki notları geçerli JSON’a dönüştür. Yalnızca JSON döndür; Markdown kod bloğu ekleme.
+Şema: {&quot;gorevler&quot;: [{&quot;is&quot;: &quot;string&quot;, &quot;sorumlu&quot;: &quot;string veya null&quot;, &quot;tarih&quot;: &quot;YYYY-MM-DD veya null&quot;}]}
+Eksik sorumlu veya tarih için null kullan, bilgi uydurma.
+
+Notlar:
+Barkın açılış sayfasını 5 Ekim 2026’ya kadar hazırlayacak.
+Ece mobil görünümü kontrol edecek; tarih belirlenmedi.
+Kullanıcı testleri 9 Ekim 2026’da yapılacak, sorumlu henüz seçilmedi.</textarea><p class="copy-status" role="status"></p></article>
+</section>
+<section id="karsilastir" class="resource-panel"><h2>4. Cevapları nasıl karşılaştırırsın?</h2><p>Aynı girdiyi iki modele, yeni sohbetlerde ver. Ayarlar sunuluyorsa temperature ve çıktı sınırını aynı tut. Tek bir denemeden genel bir “en iyi model” sonucu çıkarma.</p><ul>
+<li><strong>Doğruluk:</strong> Özet 12 Ekim ile 8 Ekim’i karıştırıyor mu? Mekân uyduruyor mu?</li>
+<li><strong>Talimat takibi:</strong> İstenen madde sayısını ve JSON biçimini koruyor mu?</li>
+<li><strong>Kod:</strong> Boş liste için None, [0, 2] için 1, [2, 4, 6] için 4 üretiyor mu? Kodu ayrıca çalıştır.</li>
+<li><strong>Belirsizlik:</strong> Görmediği veya bilmediği bilgileri açıkça belirtiyor mu?</li>
+<li><strong>Hız:</strong> Bekleme süresini not et; bulut yoğunluğu da süreyi etkiler.</li></ul></section>
+<section id="api" class="resource-panel"><h2>5. Python ile ilk API isteği</h2><p>Model sayfasından bir API anahtarı oluştur. Aşağıdaki dosyayı indirip terminalde <code>python3 ilk-istek.py</code> çalıştır. Ek paket gerekmez; anahtarı gizli girişte sorar. İstersen NVIDIA_API_KEY ortam değişkenini kullanabilirsin.</p><p class="resource-note">Bu örnek metin isteği gönderir; görseller için modelin kendi örneğini kullan. Anahtarı web sayfasına, GitHub’a veya videoya koyma. Model erişimi değişirse karttaki kimliği NVIDIA_MODEL ortam değişkenine yaz.</p><div class="panel-heading"><a href="ilk-istek.py" download>Python dosyasını indir ↓</a><button hidden type="button" class="btn primary-btn" data-copy="api-code">Kodu kopyala</button></div><label class="sr-only" for="api-code">Python API örneği</label><textarea id="api-code" readonly spellcheck="false">&quot;&quot;&quot;NVIDIA üzerinde ilk metin isteği. Python 3; ek paket gerekmez.&quot;&quot;&quot;
+import getpass
+import json
+import os
+import urllib.error
+import urllib.request
+
+
+def main():
+    key = os.getenv(&quot;NVIDIA_API_KEY&quot;) or getpass.getpass(&quot;NVIDIA API anahtarı (gizli): &quot;)
+    if not key.strip():
+        raise SystemExit(&quot;API anahtarı boş olamaz.&quot;)
+    # Güncel model kimliğini model sayfasındaki API örneğinden kontrol et.
+    model = os.getenv(&quot;NVIDIA_MODEL&quot;, &quot;meta/llama-3.3-70b-instruct&quot;)
+    payload = {
+        &quot;model&quot;: model,
+        &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;API nedir? Türkçe, iki kısa cümleyle açıkla.&quot;}],
+        &quot;temperature&quot;: 0.2,
+        &quot;max_tokens&quot;: 256,
+        &quot;stream&quot;: False,
+    }
+    request = urllib.request.Request(
+        &quot;https://integrate.api.nvidia.com/v1/chat/completions&quot;,
+        data=json.dumps(payload).encode(&quot;utf-8&quot;),
+        headers={&quot;Authorization&quot;: &quot;Bearer &quot; + key.strip(), &quot;Content-Type&quot;: &quot;application/json&quot;},
+        method=&quot;POST&quot;,
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=120) as response:
+            result = json.load(response)
+        content = result[&quot;choices&quot;][0][&quot;message&quot;].get(&quot;content&quot;)
+        print(content or &quot;Metin yanıtı boş. Modelin API örneğini ve çıktı sınırını kontrol et.&quot;)
+    except urllib.error.HTTPError as error:
+        hints = {401: &quot;API anahtarını kontrol et.&quot;, 403: &quot;Hesap doğrulaması ve model erişimini kontrol et.&quot;,
+                 404: &quot;Model kimliğini ve endpoint adresini kontrol et.&quot;,
+                 429: &quot;İstek sınırına ulaşıldı; bekleyip yeniden dene.&quot;}
+        raise SystemExit(f&quot;HTTP {error.code}: &quot; + hints.get(error.code, &quot;NVIDIA durumunu ve modelin API örneğini kontrol et.&quot;))
+    except (urllib.error.URLError, TimeoutError):
+        raise SystemExit(&quot;Bağlantı kurulamadı veya istek zaman aşımına uğradı.&quot;)
+    except (KeyError, IndexError, TypeError, ValueError):
+        raise SystemExit(&quot;Beklenen yanıt biçimi alınamadı. Modelin API örneğini kontrol et.&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</textarea><p class="copy-status" role="status"></p><p class="resource-note">401: anahtar · 403: erişim / doğrulama · 404: model / adres · 429: istek sınırı. Örnek canlı API anahtarıyla çalıştırılmadı.</p></section>
+<section class="resource-instructions"><h2>Resmî kaynaklar</h2><ul>
+<li><a href="https://docs.api.nvidia.com/nim/docs/run-anywhere" target="_blank" rel="noopener noreferrer">Ücretsiz prototipleme ve kullanım kapsamı</a></li>
+<li><a href="https://docs.api.nvidia.com/nim/reference/llm-apis" target="_blank" rel="noopener noreferrer">Metin modelleri API referansı</a></li>
+<li><a href="https://docs.nvidia.com/ai-workbench/user-guide/latest/how-to/integrations/nvidia-integrations.html" target="_blank" rel="noopener noreferrer">API anahtarı ve telefon doğrulaması</a></li>
+</ul></section></main>
+<footer class="resource-footer"><a href="../../index.html">Barkın Sarıkartal</a><p>Videolardan notlar ve kaynaklar.</p></footer></body></html>
