@@ -11,12 +11,13 @@ def main():
     if not key.strip():
         raise SystemExit("API anahtarı boş olamaz.")
     # Güncel model kimliğini model sayfasındaki API örneğinden kontrol et.
-    model = os.getenv("NVIDIA_MODEL", "meta/llama-3.3-70b-instruct")
+    model = os.getenv("NVIDIA_MODEL", "meta/muse-glimmer-30b")
     payload = {
         "model": model,
         "messages": [{"role": "user", "content": "API nedir? Türkçe, iki kısa cümleyle açıkla."}],
-        "temperature": 0.2,
-        "max_tokens": 256,
+        "temperature": 1,
+        "top_p": 0.95,
+        "max_tokens": 8192,
         "stream": False,
     }
     request = urllib.request.Request(
@@ -28,7 +29,10 @@ def main():
     try:
         with urllib.request.urlopen(request, timeout=120) as response:
             result = json.load(response)
-        content = result["choices"][0]["message"].get("content")
+        choice = result["choices"][0]
+        if choice.get("finish_reason") == "length":
+            print("Uyarı: Çıktı sınırına ulaşıldı; yanıt eksik olabilir.")
+        content = choice["message"].get("content")
         print(content or "Metin yanıtı boş. Modelin API örneğini ve çıktı sınırını kontrol et.")
     except urllib.error.HTTPError as error:
         hints = {401: "API anahtarını kontrol et.", 403: "Hesap doğrulaması ve model erişimini kontrol et.",

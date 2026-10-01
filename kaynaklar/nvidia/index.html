@@ -30,19 +30,19 @@
 </ol><p class="resource-note">Buluttaki denemeler için NVIDIA ekran kartına ihtiyacın yok. Ücretsiz erişim öğrenme ve prototip geliştirme içindir; sınırsız kullanım veya ücretsiz üretim altyapısı garantisi değildir. Gizli proje verilerini ve kişisel bilgileri deneme girdilerine ekleme.</p></section>
 <section id="modeller" class="resource-panel"><h2>2. Hangi modelle başlayayım?</h2><p class="resource-description">Bunlar başlangıç seçenekleri; bir performans sıralaması değil. Kartta Playground veya API erişimini kontrol et.</p>
 <ul class="model-list">
-<li><a href="https://build.nvidia.com/meta/llama-3_3-70b-instruct" target="_blank" rel="noopener noreferrer">Meta Llama 3.3 70B Instruct ↗</a><p>Özetleme, fikir geliştirme, JSON çıkarma ve basit kod sorularını bununla dene.</p></li>
-<li><a href="https://build.nvidia.com/models?search=nemotron" target="_blank" rel="noopener noreferrer">NVIDIA Nemotron modelleri ↗</a><p>Katalogda bir metin / reasoning modelini seçip aynı kod veya planlama sorusuna verdiği cevabı karşılaştır. Model kimliğini karttan al.</p></li>
-<li><a href="https://build.nvidia.com/meta/llama-3.2-90b-vision-instruct" target="_blank" rel="noopener noreferrer">Meta Llama 3.2 90B Vision Instruct ↗</a><p>Görsel yükleyip içeriği hakkında soru sormak için. Arayüz görsel yüklemeyi sunmuyorsa kartın görsel API örneğini kullan veya katalogdaki erişilebilir başka bir vision modeli seç.</p></li>
-</ul></section>
-<section id="promptlar"><h2>3. Kopyala ve dene</h2><p class="resource-description">Örnekler hazır girdiler içeriyor. Dördüncü promptta kendi ekran görüntünü ekle.</p>
+<li><a href="https://build.nvidia.com/meta/muse-glimmer-30b" target="_blank" rel="noopener noreferrer">Meta Muse Glimmer 30B ↗</a><p>Metin promptları ve Python örneği için başlangıç seçeneği. NVIDIA kataloğunda ücretsiz endpoint mevcut; yanıtların doğruluğunu ayrıca kontrol et.</p></li>
+<li><a href="https://build.nvidia.com/nvidia/nemotron-3.5-lightning-30b-a3b" target="_blank" rel="noopener noreferrer">NVIDIA Nemotron 3.5 Lightning ↗</a><p>Aynı kod veya planlama sorusunu ikinci bir metin modelinde karşılaştırmak için. Modelin kendi önerilen ayarlarıyla başla.</p></li>
+<li><a href="https://build.nvidia.com/moonshotai/kimi-k3" target="_blank" rel="noopener noreferrer">Moonshot AI Kimi K3 ↗</a><p>Metin ve görsel girişi destekler. Dördüncü prompt için bir fotoğraf yükle. Playground’da yükleme seçeneği yoksa model sayfasındaki görselli API örneğini kullan.</p></li>
+</ul><p class="resource-note">Bu seçeneklerin ücretsiz endpoint ve giriş türü bilgileri resmî katalogdan kontrol edildi. Promptlarla canlı çıktı testi yapılmadı; dil ve yanıt kalitesi garanti edilmez. Deprecated uyarısı varsa o modelle devam etme.</p></section>
+<section id="promptlar"><h2>3. Kopyala ve dene</h2><p class="resource-description">Örnekler hazır girdiler içeriyor. Dördüncü promptta sade, net bir nesne fotoğrafı ekle.</p>
 
-<article class="resource-panel prompt-card"><div class="panel-heading"><h3>1. Bir metni özetle</h3><button hidden type="button" class="btn primary-btn" data-copy="prompt-1">Promptu kopyala</button></div><p class="resource-note">Metin modeli · Llama ile başla</p><label class="sr-only" for="prompt-1">Bir metni özetle promptu</label><textarea id="prompt-1" readonly spellcheck="false">Aşağıdaki metni yalnızca içindeki bilgilere dayanarak Türkçe özetle.
+<article class="resource-panel prompt-card"><div class="panel-heading"><h3>1. Bir metni özetle</h3><button hidden type="button" class="btn primary-btn" data-copy="prompt-1">Promptu kopyala</button></div><p class="resource-note">Metin modeli · Muse Glimmer ile başla</p><label class="sr-only" for="prompt-1">Bir metni özetle promptu</label><textarea id="prompt-1" readonly spellcheck="false">Aşağıdaki metni yalnızca içindeki bilgilere dayanarak Türkçe özetle.
 Çıktı: 1 cümlelik ana fikir, 3 önemli nokta ve metinde cevabı olmayan 1 soru.
 Sayıları ve tarihleri koru. Metinde bulunmayan bilgi ekleme.
 
 METİN:
 Bir öğrenci kulübü 12 Ekim’de 40 kişilik bir yazılım atölyesi düzenleyecek. Kayıtlar 8 Ekim’de kapanacak. Katılım ücretsiz, bilgisayar getirmek zorunlu. Atölyede Python ile veri analizi yapılacak. Mekân henüz açıklanmadı.</textarea><p class="copy-status" role="status"></p></article>
-<article class="resource-panel prompt-card"><div class="panel-heading"><h3>2. Kod hatasını bul</h3><button hidden type="button" class="btn primary-btn" data-copy="prompt-2">Promptu kopyala</button></div><p class="resource-note">Metin / kod modeli · Llama veya Nemotron ile dene</p><label class="sr-only" for="prompt-2">Kod hatasını bul promptu</label><textarea id="prompt-2" readonly spellcheck="false">Aşağıdaki Python kodunu incele. Hatanın nedenini Türkçe açıkla, en küçük düzeltmeyi yap ve beklenen sonuçlarıyla 3 test örneği ver.
+<article class="resource-panel prompt-card"><div class="panel-heading"><h3>2. Kod hatasını bul</h3><button hidden type="button" class="btn primary-btn" data-copy="prompt-2">Promptu kopyala</button></div><p class="resource-note">Metin / kod modeli · Muse Glimmer veya Nemotron ile dene</p><label class="sr-only" for="prompt-2">Kod hatasını bul promptu</label><textarea id="prompt-2" readonly spellcheck="false">Aşağıdaki Python kodunu incele. Hatanın nedenini Türkçe açıkla, en küçük düzeltmeyi yap ve beklenen sonuçlarıyla 3 test örneği ver.
 Gereksinim: Boş listede None, diğer listelerde aritmetik ortalama döndürülmeli. Sıfır değerleri hesaba katılmalı.
 
 def ortalama(sayilar):
@@ -55,11 +55,12 @@ Kodu gerçekten çalıştırmadıysan çalıştırdığını söyleme.</textarea
 Hedef: Bir haftada denenebilecek ilk sürümün kapsamını çıkarmak.
 Türkçe yanıtla. Önce yaptığın varsayımları yaz; sonra yalnızca 3 temel özellik, 3 kapsam dışı özellik ve bir kullanıcı akışı öner.
 Her temel özellik için ölçülebilir bir kabul kriteri ekle. Kullanıcı sayısı veya gelir tahmini uydurma.</textarea><p class="copy-status" role="status"></p></article>
-<article class="resource-panel prompt-card"><div class="panel-heading"><h3>4. Görseli incele</h3><button hidden type="button" class="btn primary-btn" data-copy="prompt-4">Promptu kopyala</button></div><p class="resource-note">Görsel modeli · Llama 3.2 Vision; önce bir ekran görüntüsü yükle</p><label class="sr-only" for="prompt-4">Görseli incele promptu</label><textarea id="prompt-4" readonly spellcheck="false">Yüklediğim arayüz ekran görüntüsünü incele. Türkçe yanıtla.
-1. Ekranda doğrudan görebildiğin öğeleri listele.
-2. Okunabilirlik veya görsel hiyerarşi açısından 3 iyileştirme öner.
-3. Görselden anlaşılamayan etkileşimleri ayrı belirt.
-Okuyamadığın metni tahmin etme. Yalnızca ekran görüntüsüne bakarak butonların çalıştığını veya erişilebilirlik standartlarına tam uyulduğunu iddia etme.</textarea><p class="copy-status" role="status"></p></article>
+<article class="resource-panel prompt-card"><div class="panel-heading"><h3>4. Görseli incele</h3><button hidden type="button" class="btn primary-btn" data-copy="prompt-4">Promptu kopyala</button></div><p class="resource-note">Görsel modeli · Kimi K3; önce masa, kupa veya kitap gibi nesnelerin bulunduğu net bir fotoğraf yükle. Yeni sohbet aç ve modelin varsayılan ayarlarıyla başla.</p><label class="sr-only" for="prompt-4">Görseli incele promptu</label><textarea id="prompt-4" readonly spellcheck="false">Describe the attached photo in English only.
+Return exactly three short bullet points, with no introduction or closing text:
+- Main object: name the most prominent visible object.
+- Appearance: describe its visible color and shape.
+- Position: describe where it is in the image.
+Use at most 60 words in total. If a detail is unclear, say &quot;unclear&quot;. Do not guess hidden details or transcribe text. Stop after the third bullet point.</textarea><p class="copy-status" role="status"></p><p class="resource-note">Bu örnek İngilizce kısa bir nesne betimlemesi ister; arayüz denetimi yapmaz. Yanıt başka dillere kayarsa veya tekrara girerse üretimi durdur ve sonucu kullanma. Bu, yalnızca prompt değiştirerek kesin çözülebilecek bir sorun değildir. Türkçe gerekiyorsa doğruladığın kısa yanıtı ayrı bir metin sohbetinde çevirt.</p></article>
 <article class="resource-panel prompt-card"><div class="panel-heading"><h3>5. Metinden düzenli veri çıkar</h3><button hidden type="button" class="btn primary-btn" data-copy="prompt-5">Promptu kopyala</button></div><p class="resource-note">Metin modeli</p><label class="sr-only" for="prompt-5">Metinden düzenli veri çıkar promptu</label><textarea id="prompt-5" readonly spellcheck="false">Aşağıdaki notları geçerli JSON’a dönüştür. Yalnızca JSON döndür; Markdown kod bloğu ekleme.
 Şema: {&quot;gorevler&quot;: [{&quot;is&quot;: &quot;string&quot;, &quot;sorumlu&quot;: &quot;string veya null&quot;, &quot;tarih&quot;: &quot;YYYY-MM-DD veya null&quot;}]}
 Eksik sorumlu veya tarih için null kullan, bilgi uydurma.
@@ -88,12 +89,13 @@ def main():
     if not key.strip():
         raise SystemExit(&quot;API anahtarı boş olamaz.&quot;)
     # Güncel model kimliğini model sayfasındaki API örneğinden kontrol et.
-    model = os.getenv(&quot;NVIDIA_MODEL&quot;, &quot;meta/llama-3.3-70b-instruct&quot;)
+    model = os.getenv(&quot;NVIDIA_MODEL&quot;, &quot;meta/muse-glimmer-30b&quot;)
     payload = {
         &quot;model&quot;: model,
         &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;API nedir? Türkçe, iki kısa cümleyle açıkla.&quot;}],
-        &quot;temperature&quot;: 0.2,
-        &quot;max_tokens&quot;: 256,
+        &quot;temperature&quot;: 1,
+        &quot;top_p&quot;: 0.95,
+        &quot;max_tokens&quot;: 8192,
         &quot;stream&quot;: False,
     }
     request = urllib.request.Request(
@@ -105,7 +107,10 @@ def main():
     try:
         with urllib.request.urlopen(request, timeout=120) as response:
             result = json.load(response)
-        content = result[&quot;choices&quot;][0][&quot;message&quot;].get(&quot;content&quot;)
+        choice = result[&quot;choices&quot;][0]
+        if choice.get(&quot;finish_reason&quot;) == &quot;length&quot;:
+            print(&quot;Uyarı: Çıktı sınırına ulaşıldı; yanıt eksik olabilir.&quot;)
+        content = choice[&quot;message&quot;].get(&quot;content&quot;)
         print(content or &quot;Metin yanıtı boş. Modelin API örneğini ve çıktı sınırını kontrol et.&quot;)
     except urllib.error.HTTPError as error:
         hints = {401: &quot;API anahtarını kontrol et.&quot;, 403: &quot;Hesap doğrulaması ve model erişimini kontrol et.&quot;,
