@@ -1,0 +1,25 @@
+Web sitem için Open Graph paylaşım kapağı tasarla ve siteye eklemem için gerekli kodu hazırla. Sonuç, linkimi bir mesajlaşma uygulamasında paylaştığımda kullanılabilecek bir kapak olmalı.
+
+PROJE BİLGİLERİ — köşeli parantezleri dolduracağım:
+- Site / marka adı: [AD]
+- Site ne yapıyor, kimler için: [KISA AÇIKLAMA]
+- Paylaşılacak sayfanın tam adresi: [HTTPS URL]
+- Kapakta yazacak kısa başlık: [BAŞLIK — boşsa açıklamamdan öner]
+- Renkler ve görsel tarz: [RENKLER / TARZ — boşsa eklediğim ekran görüntüsünü referans al]
+- Kullanılan altyapı: [HTML, Vite, Next.js vb. / bilmiyorum]
+- Logo veya ekran görüntüsü: [Varsa bu mesaja ekliyorum]
+
+ÖNCE TASARIMI ÜRET
+1. Tek bir güçlü tasarım hazırla. Marka adı, kısa başlık ve siteye özgü bir görsel öğe kullan. Küçük önizlemede okunabilir olsun; metinleri kenarlardan en az 60 piksel içeride tut. Site hakkında vermediğim özellikler, kullanıcı sayıları veya sloganlar uydurma.
+2. 1200 × 630 piksel kapak oluştur. Bu, bu çalışma için seçtiğimiz boyut; her platformun aynı kırpmayı yapacağını varsayma. Tasarım sade, dengeli ve projeye özgü olsun. İstenmedikçe gradyan, parlayan küre, cam efekti, dekoratif grafik ve üst üste yuvarlak kartlar kullanma.
+3. Çıktıyı tek, bağımsız bir HTML dosyası olarak ver. Canvas veya HTML önizlemesi varsa orada göster; yoksa eksiksiz kodu ver. Sayfada kapağın kendisi, “PNG indir” butonu ve kopyalanabilir metadata kodu bulunsun. Telefon çerçevesi veya sosyal medya uygulaması maketi çizme.
+4. Kapağı HTML canvas üzerinde çiz; önizleme ile indirilen görsel aynı çizimi kullansın. Canvas'ın gerçek piksel boyutu 1200 × 630 olsun, ekranda oranı korunarak küçülsün. Buton canvas.toBlob ile gerçek bir og-image.png indirsin. Harici kütüphane veya ağ isteği gerektirme. Sistem fontları kullan; uzun başlıkları ölçerek satırlara böl, taşmaları önle. Logo kullanacaksan yerel dosya seçimiyle yükle ve yüklenmeden indirmeyi başlatma. URL üzerinden logo çekip CORS nedeniyle PNG indirmeyi bozma. Logo yoksa uydurma logo yerine marka adını yaz.
+
+ARDINDAN SİTEYE EKLEMEYİ HAZIRLA
+5. og:title, og:description, og:type, og:url, og:image, og:image:width, og:image:height ve og:image:alt bilgilerini hazırla. Genel web sayfası için og:type website kullan. og:image adresi, yayınlanmış PNG dosyasının tam HTTPS adresi olmalı; localhost, blob, data URL veya HTML önizleme dosyası olmamalı.
+6. Verdiğim altyapıya uygun ekleme yöntemini göster. Statik HTML'de head içine meta property etiketlerini; metadata API'si olan framework'te onun yerleşik yöntemini kullan. Etiketlerin ilk sunulan HTML'de bulunmasını sağla; yalnızca tarayıcıdaki JavaScript ile sonradan eklemeye dayanma. Mevcut metadata varsa tekrar oluşturmadan güncelle. Altyapımı bilmiyorsan statik HTML örneği ver ve entegrasyon için hangi dosyayı paylaşmam gerektiğini söyle.
+7. PNG'yi nereye koyacağımı ve hangi dosyayı değiştireceğimi kısa adımlarla anlat. Gerçek site adresi verilmediyse açıkça değiştirmem gereken bir yer tutucu kullan; yayınlanmış gibi davranma. Projeme erişimin yoksa kodu eklediğini söyleme.
+8. Sonunda kısa kontrol listesi ver: PNG ve sayfa herkese açık HTTPS adresinde açılıyor mu, görsel isteği gerçekten image/png döndürüyor mu, og:image doğru adresi gösteriyor mu, etiketler sayfa kaynağında var mı? Önizlemenin platforma göre değişebileceğini ve eski görselin önbellekte kalabileceğini bir cümleyle belirt.
+
+ÇIKTI SIRASI
+Önce çalışan HTML tasarım aracı, ardından projeme uygun metadata kodu ve en fazla 5 maddelik kurulum / kontrol açıklaması. Genel Open Graph dersi anlatma; doğrudan kullanabileceğim çıktıyı üret. Çalıştırmadığın kodu veya test etmediğin paylaşım önizlemesini doğrulanmış olarak sunma.
