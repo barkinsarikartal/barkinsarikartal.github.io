@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>Görselini küçük ekrana taşı · Barkın Sarıkartal</title>
+<meta name="description" content="image2cpp kullanımı, Nano SH1106 OLED ve ESP32 ILI9341 TFT için bağlantılar ve indirilebilir Arduino kodları.">
+<link rel="stylesheet" href="../../styles/style.css">
+<link rel="stylesheet" href="../kaynaklar.css">
+<script src="../kaynaklar.js" defer></script>
+<link rel="stylesheet" href="rehber.css">
+</head>
+<body>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="navbar"><nav class="nav-content resource-nav" aria-label="Ana gezinme">
+<a class="logo" href="../../index.html" aria-label="Barkın Sarıkartal — Portfolyo">BS.</a>
+<div class="resource-nav-actions"><a href="../../index.html">Portfolyo ↗</a><button id="resource-theme" type="button" aria-label="Koyu temaya geç">Koyu tema</button></div>
+</nav></header>
+<main id="icerik" class="resource-main">
+<header class="resource-heading"><p class="eyebrow">Elektronik · Video rehberi</p><h1>Görselini küçük ekrana taşı</h1><p class="resource-description">Bir logo veya fotoğrafı image2cpp ile ekranında gösterebileceğin veriye dönüştür. Ekranına uygun yolu seç, örneği indir ve kendi görselinle değiştir.</p></header>
+<nav class="jump" aria-label="Rehber bölümleri"><a href="#baslangic">Başlangıç</a><a href="#oled">Nano + OLED</a><a href="#tft">ESP32 + TFT</a><a href="#yukle">Kodu yükle</a><a href="#sorun">Sorun giderme</a></nav>
+<section id="baslangic"><h2>1. Önce ekranını kontrol et</h2><p>Bu örnekler iki belirli kurulum içindir. Farklı ekran sürücüsü, çözünürlük veya kart kullanıyorsan pinleri ve kütüphaneyi uyarlaman gerekir.</p><div class="table-wrap"><table><tr><th>Örnek</th><th>Kart</th><th>Ekran / bağlantı</th></tr><tr><td>OLED</td><td>Klasik Arduino Nano · ATmega328P</td><td>SH1106 · 128×64 · I²C · 0x3C</td></tr><tr><td>Renkli TFT</td><td>Klasik ESP32 DevKit</td><td>ILI9341 · 240×320 dikey · SPI</td></tr></table></div><p>Arduino IDE Kütüphane Yöneticisi’nden <strong>Adafruit GFX Library</strong> ve ekranına göre <strong>Adafruit SH110X</strong> veya <strong>Adafruit ILI9341</strong> kur. Önerilen bağımlılıkları da yükle. Nano için Arduino AVR Boards, ESP32 için Espressif’in esp32 kart paketi gerekli.</p><p><a href="https://www.image2cpp.com/">image2cpp.com’u aç ↗</a>. OLED için sade, yüksek kontrastlı bir logo; TFT için renkli bir görsel seç. Aşağıdaki adımlar özellikle bu sitenin çıktı biçimine göre hazırlanmıştır.</p></section>
+<section id="oled"><h2>2A. Nano + SH1106 OLED</h2><ol><li>UPLOAD ile görselini yükle.</li><li>OUTPUT TYPE → <strong>PAPER DISPLAY (B/W 1-bit)</strong>. İsmi “paper” olsa da OLED için gereken tek renkli çıktı budur.</li><li>DISPLAY PRESET → <strong>SSD1306 / SH1106 128×64</strong>.</li><li>Görsel kartındaki VAR NAME alanını <strong>image</strong> yap. W = 128, H = 64, FORMAT = MONO 1-bit olduğunu kontrol et.</li><li>THRESHOLD ile ayrıntıları ayarla; gerektiğinde Invert seç. Önizlemedeki beyaz pikseller OLED’de yanar.</li><li>Görsel kartındaki COPY düğmesiyle diziyi ve genişlik/yükseklik tanımlarını birlikte kopyala.</li></ol><p class="note">Üst ayarları mevcut görsellere uygulamak için “Update all images (global override)” seçeneğini kullan veya görsel kartındaki değerleri doğrudan değiştir.</p><div class="table-wrap"><table><tr><th>OLED pini</th><th>Nano bağlantısı</th></tr><tr><td>SDA</td><td>A4</td></tr><tr><td>SCL</td><td>A5</td></tr><tr><td>GND</td><td>GND</td></tr><tr><td>VCC</td><td>Modülün belgelerinde belirtilen besleme</td></tr></table></div><p class="note">Klasik Nano’nun mantık seviyesi 5 V’tur. OLED modülünün I²C girişleriyle uyumluluğunu kontrol et; yalnızca 3.3 V mantık destekliyorsa uygun seviye dönüştürücü kullan. Besleme gerilimi desteği ile sinyal gerilimi desteği aynı şey değildir.</p><p>Bu site tek renkli veriyi dikey 8 piksellik gruplarla üretir. Aşağıdaki kod bunu okuyarak SH1106’ya çizer; standart drawBitmap() çağrısına doğrudan vermek görüntüyü bozabilir.</p><p><a class="btn primary-btn" href="OLED_SH1106.zip" download>OLED örneğini indir · ZIP</a></p><details><summary>OLED Arduino kodunu göster</summary><pre><code>#include &lt;Arduino.h&gt;
+#include &lt;Wire.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_SH110X.h&gt;
+#include &quot;images.h&quot;
+
+// Classic Arduino Nano (ATmega328P): SDA = A4, SCL = A5.
+constexpr uint8_t OLED_ADDRESS = 0x3C;
+Adafruit_SH1106G display(128, 64, &amp;Wire, -1);
+
+static_assert(sizeof(image) == image_width * ((image_height + 7) / 8),
+              &quot;Image size does not match vertical-page MONO format&quot;);
+static_assert(image_width &lt;= 128 &amp;&amp; image_height &lt;= 64, &quot;Image too large&quot;);
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin();
+  Wire.beginTransmission(OLED_ADDRESS);
+  if (Wire.endTransmission() != 0) {
+    Serial.println(F(&quot;OLED not found at 0x3C. Check wiring/address.&quot;));
+    while (true) delay(1000);
+  }
+  if (!display.begin(OLED_ADDRESS, true)) {
+    Serial.println(F(&quot;SH1106 initialization failed.&quot;));
+    while (true) delay(1000);
+  }
+  display.clearDisplay();
+  const int x0 = (128 - image_width) / 2;
+  const int y0 = (64 - image_height) / 2;
+  // image2cpp.com MONO: page-major, one byte = 8 vertical pixels, LSB at top.
+  for (int y = 0; y &lt; image_height; ++y) {
+    for (int x = 0; x &lt; image_width; ++x) {
+      uint8_t value = pgm_read_byte(&amp;image[(y / 8) * image_width + x]);
+      if (value &amp; (1u &lt;&lt; (y % 8))) {
+        display.drawPixel(x0 + x, y0 + y, SH110X_WHITE);
+      }
+    }
+  }
+  display.display();
+  Serial.println(F(&quot;Image displayed.&quot;));
+}
+
+void loop() { delay(100); }
+</code></pre></details></section><section id="tft"><h2>2B. ESP32 + dikey ILI9341 TFT</h2><ol><li>Renkli görselini yükle.</li><li>OUTPUT TYPE → <strong>RGB DISPLAY (RGB565)</strong>.</li><li>DISPLAY PRESET → <strong>ILI9341 240×320</strong>.</li><li>VAR NAME → <strong>image</strong>. W = 240, H = 320, FORMAT = RGB565 olduğunu kontrol et.</li><li>Görsel kartındaki COPY ile kodun tamamını kopyala.</li></ol><p>Görsel oranı korunarak alana sığdırılır; boşlukları azaltmak için dikey, 3:4 oranında bir görsel kullanabilirsin.</p><div class="table-wrap"><table><tr><th>TFT pini</th><th>ESP32 bağlantısı</th></tr><tr><td>SCK / CLK</td><td>GPIO18</td></tr><tr><td>SDI / MOSI</td><td>GPIO23</td></tr><tr><td>CS</td><td>GPIO27</td></tr><tr><td>DC / RS</td><td>GPIO26</td></tr><tr><td>RST / RESET</td><td>GPIO25</td></tr><tr><td>GND</td><td>GND</td></tr><tr><td>VCC ve LED / BL</td><td>Modülün besleme ve arka ışık bağlantı talimatına göre</td></tr></table></div><p>Bu kod SPI modülü içindir; paralel bağlantılı Uno shield için değildir. MISO, dokunmatik ve SD kart kullanılmıyor. ESP32 GPIO’ları 3.3 V seviyesindedir. Arka ışığı besleme gereksinimini kontrol etmeden doğrudan GPIO’ya bağlama.</p><p>Örnekte <code>tft.setRotation(2)</code> ile dikey görünüm kullanılıyor. Ters görünürse <code>0</code> yap; ikisi de 240×320 dikeydir.</p><p><a class="btn primary-btn" href="TFT_ILI9341.zip" download>TFT örneğini indir · ZIP</a></p><details><summary>TFT Arduino kodunu göster</summary><pre><code>#include &lt;Arduino.h&gt;
+#include &lt;SPI.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_ILI9341.h&gt;
+#include &quot;images.h&quot;
+
+// Classic ESP32 DevKit + SPI ILI9341 (not a parallel Uno shield).
+constexpr int TFT_SCK = 18;
+constexpr int TFT_MOSI = 23;
+constexpr int TFT_CS = 27;
+constexpr int TFT_DC = 26;
+constexpr int TFT_RST = 25;
+Adafruit_ILI9341 tft(&amp;SPI, TFT_DC, TFT_CS, TFT_RST);
+
+static_assert(sizeof(image) / sizeof(image[0]) == image_width * image_height,
+              &quot;Image size does not match RGB565 format&quot;);
+static_assert(sizeof(image[0]) == 2, &quot;Use uint16_t RGB565 output&quot;);
+static_assert(image_width &lt;= 240 &amp;&amp; image_height &lt;= 320, &quot;Image too large&quot;);
+
+void setup() {
+  Serial.begin(115200);
+  SPI.begin(TFT_SCK, -1, TFT_MOSI, TFT_CS);
+  tft.begin(10000000);
+  tft.setRotation(2); // Portrait: 240 x 320
+  tft.fillScreen(ILI9341_BLACK);
+  tft.drawRGBBitmap((tft.width() - image_width) / 2,
+                    (tft.height() - image_height) / 2,
+                    image, image_width, image_height);
+  Serial.println(&quot;Image sent to TFT.&quot;);
+}
+
+void loop() { delay(100); }
+</code></pre></details></section><section id="yukle"><h2>3. Kendi görselini yerleştir ve yükle</h2><ol><li>ZIP’i aç. Klasör adıyla aynı isimdeki <strong>.ino</strong> dosyasını Arduino IDE’de aç; yanındaki <strong>images.h</strong> aynı klasörde kalmalı.</li><li>İstersen önce değiştirmeden yükle: OLED örneğinde dama deseni, TFT örneğinde kırmızı, yeşil, mavi ve beyaz şeritler bulunur.</li><li>images.h sekmesinin tüm içeriğini, siteden kopyaladığın kodla değiştir. Yalnızca sayıları değil, dizi ve boyut tanımlarını da yapıştır.</li><li>İsimler <code>image</code>, <code>image_width</code> ve <code>image_height</code> olmalı. OLED dizisi <code>const unsigned char</code>, TFT dizisi <code>const uint16_t</code> olmalı; <code>PROGMEM</code> ifadesini koru.</li><li>Kartını ve portunu seçip yükle. Seri monitör hızı <strong>115200</strong>.</li></ol><p>TFT’de 240×320 RGB565 görsel 153.600 bayt tutar. Bu nedenle TFT örneği Nano için değil ESP32 içindir. OLED’de 128×64 tek renkli görsel 1.024 bayttır; Nano örneğinde görsel flash bellekte tutulur.</p></section>
+<section id="sorun"><h2>Bir şey ters giderse</h2><dl><dt>OLED bulunamadı</dt><dd>SDA/SCL, ortak GND ve beslemeyi kontrol et. 0x3C varsayımı yanlış olabilir; I²C taramasıyla adresi doğrula. SSD1306 ekran kullanıyorsan SH1106 sürücüsünü seçme.</dd><dt>OLED’de görüntü parçalı veya anlamsız</dt><dd>MONO 1-bit çıktısını kullandığından emin ol. Bu örnek image2cpp.com’un dikey sayfa düzeni içindir.</dd><dt>Beyaz/siyah ters</dt><dd>Sitedeki Invert seçeneğini değiştirip çıktıyı yeniden al.</dd><dt>TFT siyah veya tamamen beyaz</dt><dd>Besleme, arka ışık, CS/DC/RST ve SPI kablolarını kontrol et. Seri monitörde “Image sent” yazması fiziksel ekranın çalıştığını doğrulamaz.</dd><dt>Image too large / size does not match</dt><dd>Doğru çözünürlük ve formatla yeniden dönüştür. Diziyi eksiksiz kopyala.</dd><dt>image was not declared</dt><dd>Sitede VAR NAME alanını image yap ve çıktıyı tekrar kopyala.</dd><dt>Nano’ya yükleme başarısız</dt><dd>Doğru port ve işlemci seçimini kontrol et. Bazı eski Nano kartlarında ATmega328P (Old Bootloader) gerekir.</dd></dl></section>
+<section><h2>Kaynaklar</h2><ul><li><a href="https://www.image2cpp.com/">image2cpp.com</a></li><li><a href="https://github.com/adafruit/Adafruit_SH110x">Adafruit SH110X</a></li><li><a href="https://github.com/adafruit/Adafruit_ILI9341">Adafruit ILI9341</a></li><li><a href="https://github.com/adafruit/Adafruit-GFX-Library">Adafruit GFX</a></li></ul><p class="note">Örnekler belirtilen kartlar için derleme kontrolünden geçirilmiştir; her modül varyantında fiziksel test yapılmamıştır. Hazırlanma: 12 Ekim 2026.</p></section></main><footer class="resource-footer"><a href="../../index.html">Barkın Sarıkartal</a><p>Videolardan notlar ve kaynaklar.</p></footer></body></html>
