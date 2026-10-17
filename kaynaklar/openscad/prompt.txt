@@ -1,0 +1,55 @@
+You are designing a practical, parametric enclosure in OpenSCAD for a Raspberry Pi 4 Model B.
+
+Create a complete, self-contained OpenSCAD file that I can paste into OpenSCAD, preview, render, and export as separate STL files for the base and lid. This is a real enclosure design, not a decorative box. Prioritize correct board placement, connector access, assembly clearance, and simple printable geometry.
+
+1. REFERENCE AND DIMENSIONAL ACCURACY
+Use the attached official Raspberry Pi 4 Model B mechanical drawing as the primary source:
+https://pip-assets.raspberrypi.com/categories/559-mechanical/documents/RP-001185-MD-1-Mechanical%20Drawing.pdf
+
+Confirm the reference is for Raspberry Pi 4 Model B, not Pi 3, Pi 5, or Compute Module. Read board outline, mounting-hole positions, connector locations, and available height dimensions from it. Do not infer physical dimensions from screenshot scale. Distinguish the PCB outline from connectors extending beyond it. Explain how the drawing maps into your coordinate system; do not mirror the layout. If you cannot access or read the drawing, say so. Label every missing dimension as an editable assumption, never a verified specification. Provide a compact table of verified dimensions and assumptions. Proceed with a useful prototype when possible, explicitly identifying what must be measured before printing.
+
+2. APPEARANCE AND SCOPE
+Design a clean, compact desktop case with a lower tray, a separate removable lid, modestly rounded vertical outer corners, elongated lid ventilation slots, and functional connector openings. No logos, lettering, decorative feet, fan mount, or ornamental features. Assume no HAT or unusually tall aftermarket cooler. Avoid excessive margins.
+
+3. COORDINATE SYSTEM
+X and Y follow board length and width; Z is vertical. The base exterior bottom is Z=0. Define one PCB origin and derive all mounting and connector coordinates from it. Explain which edge carries USB/Ethernet and which carries power/display connectors. Keep the board-to-case translation in one place. Separate floor thickness, gap below PCB, PCB thickness, and clearance above the tallest included component.
+
+4. BASE AND BOARD MOUNTING
+Include a flat floor, walls, and four standoffs aligned to the official mounting pattern. Use configurable pilot holes for suitable board screws; state the assumed screw type and treat pilot diameter as a fabrication setting, not guaranteed fit. Provide underside clearance, microSD access, screw access, and a viable top-down board insertion path accounting for protruding connectors. Standoffs must not collide with components. If underside component data is insufficient, flag a physical-fit check rather than claiming verification.
+
+5. CONNECTOR ACCESS
+Provide correctly placed openings for USB, Ethernet, USB-C power, both micro-HDMI ports, the 3.5 mm audio/video connector, and microSD. Allow configurable clearance for plug housings, not just metal connectors. Shared openings are acceptable where practical; explain the choice. MicroSD access must permit insertion and removal, using a bottom-edge notch if necessary. Keep enough material between openings and near corners. Include optional, disabled-by-default GPIO, camera, and display ribbon access. Derive their locations from the reference or clearly label provisional geometry. Do not silently guess positions.
+
+6. REMOVABLE LID
+Use a slip-fit lid with a top plate, an internal locating skirt, a defined seating surface, and a small finger notch. No fragile snap hooks. This is a removable desktop cover, not a locking lid. Specify fit clearance per side. Prevent the skirt from colliding with connectors, PCB, screws, or vents. Interrupt the skirt locally where required. Ensure the seating surface stops the lid without relying on component contact.
+
+7. STARTING FABRICATION SETTINGS
+These are design choices, not Raspberry Pi specifications:
+- Wall, floor, and lid thickness: 2.4 mm each.
+- PCB edge clearance: approximately 1.0 mm per side, adjustable.
+- Lid clearance: approximately 0.3 mm per side, adjustable.
+- Modest adjustable outside corner radius.
+- Vent slots approximately 3 mm wide with adequate material between them.
+Assume FDM, a 0.4 mm nozzle and 0.2 mm layers. Keep vents away from the perimeter, skirt, and structural regions. Avoid unsupported ceilings where practical. Explain likely bridging/support needs. Do not guarantee support-free printing, cooling performance, or fit without testing.
+
+8. PARAMETERS AND MODULES
+Group editable parameters at the top: board dimensions; mounting coordinates; connector envelopes; board placement; shell thicknesses; lid fit; ventilation; optional openings; preview/export controls. Derive case dimensions from component envelopes and clearances rather than scattering hard-coded offsets.
+Use clear modules such as base_shell(), board_standoffs(), connector_cutouts(), lid(), ventilation_cutouts(), board_reference(), and assembly(). Each printable part must be one connected solid.
+
+9. PREVIEW AND EXPORT
+Provide part = "assembly"; with these modes:
+- "assembly": assembled base and lid.
+- "exploded": lid raised to expose the interior.
+- "base": only the base in printing orientation.
+- "lid": only the lid in printing orientation.
+- "layout": base and lid side by side, separated, both resting on Z=0.
+Provide show_board = true; for simplified PCB and connector reference geometry. Restrict reference geometry to preview using $preview and/or background geometry so it never enters exported STLs. Base and lid export modes must be clean regardless of show_board. Choose a lid print orientation that does not bridge the entire top plate over an empty skirt. Explain the orientation.
+
+10. IMPLEMENTATION
+Use built-in OpenSCAD only: no external libraries, fonts, imported meshes, or extra files. Use valid syntax. Prefer rounded 2D profiles with linear_extrude where appropriate; avoid expensive whole-model minkowski. Use epsilon for cutters and joints. Cutters must cross the complete wall. Connected features must overlap by real volume, not merely touch along a face or edge. Avoid zero thickness, internal walls, and disconnected solids. Add assertions for invalid parameter combinations. Keep preview and rendering reasonably fast.
+
+11. LOGICAL REVIEW
+Check board orientation, coordinate transforms, mounting alignment, correct connector walls, plug clearance, microSD access, installation path, screw access, lid collisions, connected solids, print orientation, and exclusion of reference geometry. If you can execute OpenSCAD, report actual validation. Otherwise explicitly state the code has not been executed. Do not invent rendering, manifold, or physical-fit test results.
+
+12. OUTPUT
+Return a short design summary; a verified-versus-assumed dimension table; the complete OpenSCAD source in one code block with no missing modules or placeholders; preview/render/separate-STL export instructions; a practical pre-print measurement checklist; and prototype limitations. Produce actual code, not only a proposal.
