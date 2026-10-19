@@ -1,0 +1,27 @@
+<svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="ghost-idle-fill" cx="45" cy="38" r="82" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.55" stop-color="#f8f6ff" />
+      <stop offset="1" stop-color="#e2ddf4" />
+    </radialGradient>
+  </defs>
+  <path d="M60 16C80 16 93.5 34.6 95 52C96.5 69.4 98.5 92.6 100 110C100.5 117 95.5 121 90 121C84.5 121 83.5 115 80 115C76.5 115 75.5 122 70 122C64.5 122 63.5 115 60 115C56.5 115 55.5 122 50 122C44.5 122 43.5 115 40 115C36.5 115 35.5 121 30 121C24.5 121 19.5 117 20 110C21.5 92.6 23.5 69.4 25 52C26.5 34.6 40 16 60 16Z" fill="url(#ghost-idle-fill)" stroke="#c4bddf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M27 63L24 64C12 66 11 78 22.6 80L26 81ZM93 63L96 64C108 66 109 78 97.4 80L94 81Z" fill="url(#ghost-idle-fill)" />
+  <path d="M24 64C12 66 11 78 22.6 80M96 64C108 66 109 78 97.4 80" fill="none" stroke="#c4bddf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <g fill="#ff9fb8" opacity="0.68">
+    <ellipse cx="36.5" cy="60" rx="5.5" ry="3.2" />
+    <ellipse cx="83.5" cy="60" rx="5.5" ry="3.2" />
+  </g>
+  <g fill="#2d2640">
+    <ellipse cx="46" cy="53" rx="4.8" ry="6.2" />
+    <ellipse cx="74" cy="53" rx="4.8" ry="6.2" />
+  </g>
+  <g fill="#ffffff">
+    <circle cx="44.3" cy="50.2" r="2.1" />
+    <circle cx="47.7" cy="55.8" r="1" />
+    <circle cx="72.3" cy="50.2" r="2.1" />
+    <circle cx="75.7" cy="55.8" r="1" />
+  </g>
+  <path d="M56 58.5C56.8 62.2 63.2 62.2 64 58.5" fill="none" stroke="#2d2640" stroke-width="2.2" stroke-linecap="round" />
+</svg>

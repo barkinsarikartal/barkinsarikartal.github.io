@@ -1,0 +1,194 @@
+/* Halloween ghost (landing page only). Behaviour lives in halloween.js. */
+.ghost {
+    --ghost-size: 76px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    width: var(--ghost-size);
+    height: calc(var(--ghost-size) * 13 / 12);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none;
+    will-change: transform;
+    transition: opacity 0.4s ease;
+}
+
+/* Tucked behind the cards: above the page background, below the content */
+.ghost.is-behind {
+    z-index: -1;
+}
+
+.ghost.is-gone {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ghost-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: ghost-bob 2.6s ease-in-out infinite;
+    filter: drop-shadow(0 6px 10px rgba(76, 60, 140, 0.18));
+    transition: scale 0.3s ease;
+}
+
+/* A soft glow instead of a shadow, so it stands out the same on black */
+[data-theme="dark"] .ghost-body {
+    filter: drop-shadow(0 0 12px rgba(205, 195, 255, 0.35));
+}
+
+.ghost-body img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    pointer-events: none;
+}
+
+.ghost-body img.is-active {
+    display: block;
+}
+
+.ghost.is-flipped .ghost-body {
+    scale: -1 1;
+}
+
+.ghost.is-popping .ghost-body {
+    animation: ghost-bob 2.6s ease-in-out infinite, ghost-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ghost.is-shaking .ghost-body {
+    animation: ghost-bob 2.6s ease-in-out infinite, ghost-shake 0.12s ease-in-out infinite alternate;
+}
+
+.ghost.is-peeking .ghost-body {
+    animation: ghost-bob 2.6s ease-in-out infinite, ghost-wiggle 1.4s ease-in-out infinite;
+}
+
+.ghost.is-spinning .ghost-body {
+    animation: ghost-bob 2.6s ease-in-out infinite, ghost-spin 0.9s cubic-bezier(0.45, 0, 0.25, 1);
+}
+
+.ghost.is-dizzy .ghost-body {
+    animation: ghost-bob 2.6s ease-in-out infinite, ghost-wiggle 0.5s ease-in-out infinite;
+}
+
+.ghost-bubble {
+    position: absolute;
+    left: 60%;
+    bottom: 80%;
+    width: 85%;
+    opacity: 0;
+    scale: 0.4;
+    transform-origin: bottom left;
+    transition: opacity 0.15s ease, scale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+}
+
+.ghost.is-booing .ghost-bubble {
+    opacity: 1;
+    scale: 1;
+}
+
+.ghost-sparkle {
+    position: fixed;
+    z-index: 899;
+    pointer-events: none;
+    animation: ghost-sparkle 0.9s ease-out forwards;
+}
+
+@keyframes ghost-bob {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -6px;
+    }
+}
+
+@keyframes ghost-pop {
+    0% {
+        transform: scale(0.8);
+    }
+
+    60% {
+        transform: scale(1.12);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes ghost-shake {
+    from {
+        rotate: -6deg;
+    }
+
+    to {
+        rotate: 6deg;
+    }
+}
+
+@keyframes ghost-wiggle {
+    0%,
+    100% {
+        rotate: -4deg;
+    }
+
+    50% {
+        rotate: 4deg;
+    }
+}
+
+@keyframes ghost-spin {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 720deg;
+    }
+}
+
+@keyframes ghost-sparkle {
+    0% {
+        opacity: 0;
+        scale: 0.3;
+    }
+
+    25% {
+        opacity: 1;
+        scale: 1;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 0.2;
+        translate: 0 14px;
+        rotate: 90deg;
+    }
+}
+
+@media (max-width: 768px) {
+    .ghost {
+        --ghost-size: 58px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ghost .ghost-body {
+        animation: none !important;
+        transition: none;
+    }
+
+    .ghost-bubble {
+        transition: none;
+    }
+}

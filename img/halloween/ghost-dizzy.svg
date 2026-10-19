@@ -1,0 +1,26 @@
+<svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="ghost-dizzy-fill" cx="45" cy="38" r="82" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.55" stop-color="#f8f6ff" />
+      <stop offset="1" stop-color="#e2ddf4" />
+    </radialGradient>
+  </defs>
+  <ellipse cx="60" cy="22" rx="37" ry="9.5" transform="rotate(-6 60 22)" fill="none" stroke="#a99fd0" stroke-width="1.6" stroke-dasharray="3.5 3.5" stroke-linecap="round" />
+  <path d="M60 16C80 16 93.5 34.6 95 52C96.5 69.4 98.5 92.6 100 110C100.5 117 95.5 121 90 121C84.5 121 83.5 115 80 115C76.5 115 75.5 122 70 122C64.5 122 63.5 115 60 115C56.5 115 55.5 122 50 122C44.5 122 43.5 115 40 115C36.5 115 35.5 121 30 121C24.5 121 19.5 117 20 110C21.5 92.6 23.5 69.4 25 52C26.5 34.6 40 16 60 16Z" fill="url(#ghost-dizzy-fill)" stroke="#c4bddf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M27.5 58L24.4 59C12 58 10 70 23.2 73L26.5 74ZM93 64L96 65C108 67 109 79 97.4 80L94 81Z" fill="url(#ghost-dizzy-fill)" />
+  <path d="M24.4 59C12 58 10 70 23.2 73M96 65C108 67 109 79 97.4 80" fill="none" stroke="#c4bddf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <g fill="#ffd166" stroke="#f0b429" stroke-width="1.2" stroke-linejoin="round">
+    <path d="M24 18.5C24.6 21.8 25.7 22.9 29 23.5C25.7 24.1 24.6 25.2 24 28.5C23.4 25.2 22.3 24.1 19 23.5C22.3 22.9 23.4 21.8 24 18.5Z" />
+    <path d="M57 6.5C57.7 10.2 58.8 11.3 62.5 12C58.8 12.7 57.7 13.8 57 17.5C56.3 13.8 55.2 12.7 51.5 12C55.2 11.3 56.3 10.2 57 6.5Z" />
+    <path d="M96 12.5C96.6 15.8 97.7 16.9 101 17.5C97.7 18.1 96.6 19.2 96 22.5C95.4 19.2 94.3 18.1 91 17.5C94.3 16.9 95.4 15.8 96 12.5Z" />
+  </g>
+  <g fill="#ff9fb8" opacity="0.65">
+    <ellipse cx="35.5" cy="61" rx="5.2" ry="3" />
+    <ellipse cx="84.5" cy="61" rx="5.2" ry="3" />
+  </g>
+  <g fill="none" stroke="#2d2640" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M45 53C46.2 51.8 48 52.8 47.5 54.5C46.8 56.8 43.2 57 42 54.8C40.2 51.8 42.5 48 45.8 48C49.8 48 52 52.2 50.2 56C48.2 59.8 42.5 60.2 39.8 56.8M75 53C73.8 51.8 72 52.8 72.5 54.5C73.2 56.8 76.8 57 78 54.8C79.8 51.8 77.5 48 74.2 48C70.2 48 68 52.2 69.8 56C71.8 59.8 77.5 60.2 80.2 56.8" stroke-width="2" />
+    <path d="M52 61.5L55.2 59L58.4 62.5L61.6 59L64.8 62.5L68 60" stroke-width="2.1" />
+  </g>
+</svg>

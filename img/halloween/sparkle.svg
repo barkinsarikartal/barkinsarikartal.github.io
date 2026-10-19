@@ -1,0 +1,10 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="sparkle-fill" cx="12" cy="12" r="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="1" stop-color="#ffc44d" />
+    </radialGradient>
+  </defs>
+  <circle cx="12" cy="12" r="9.5" fill="#ffd56b" opacity="0.25" />
+  <path d="M12 2C12.7 2 13.2 7.8 14.7 9.3C16.2 10.8 22 11.3 22 12C22 12.7 16.2 13.2 14.7 14.7C13.2 16.2 12.7 22 12 22C11.3 22 10.8 16.2 9.3 14.7C7.8 13.2 2 12.7 2 12C2 11.3 7.8 10.8 9.3 9.3C10.8 7.8 11.3 2 12 2Z" fill="url(#sparkle-fill)" />
+</svg>

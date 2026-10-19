@@ -1,0 +1,22 @@
+<svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="ghost-blush-fill" cx="45" cy="38" r="82" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.55" stop-color="#f8f6ff" />
+      <stop offset="1" stop-color="#e2ddf4" />
+    </radialGradient>
+  </defs>
+  <path d="M60 16C80 16 93.5 34.6 95 52C96.5 69.4 98.5 92.6 100 110C100.5 117 95.5 121 90 121C84.5 121 83.5 115 80 115C76.5 115 75.5 122 70 122C64.5 122 63.5 115 60 115C56.5 115 55.5 122 50 122C44.5 122 43.5 115 40 115C36.5 115 35.5 121 30 121C24.5 121 19.5 117 20 110C21.5 92.6 23.5 69.4 25 52C26.5 34.6 40 16 60 16Z" fill="url(#ghost-blush-fill)" stroke="#c4bddf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M27 63L24 64C12 66 11 78 22.6 80L26 81ZM93 63L96 64C108 66 109 78 97.4 80L94 81Z" fill="url(#ghost-blush-fill)" />
+  <path d="M24 64C12 66 11 78 22.6 80M96 64C108 66 109 78 97.4 80" fill="none" stroke="#c4bddf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M98 30C98 30 90.5 25.2 90.5 20.5C90.5 18 92.5 16.2 94.8 16.2C96.3 16.2 97.5 17 98 18.2C98.5 17 99.7 16.2 101.2 16.2C103.5 16.2 105.5 18 105.5 20.5C105.5 25.2 98 30 98 30ZM109 16.5C109 16.5 104.2 13.4 104.2 10.3C104.2 8.7 105.5 7.5 107 7.5C108 7.5 108.7 8 109 8.8C109.3 8 110 7.5 111 7.5C112.5 7.5 113.8 8.7 113.8 10.3C113.8 13.4 109 16.5 109 16.5Z" fill="#ff6b8a" />
+  <g fill="#ff9fb8" opacity="0.75">
+    <ellipse cx="36" cy="60" rx="7.5" ry="4.4" />
+    <ellipse cx="84" cy="60" rx="7.5" ry="4.4" />
+  </g>
+  <path d="M33 58.2L31.5 61.8M36.5 58.2L35 61.8M40 58.2L38.5 61.8M81 58.2L79.5 61.8M84.5 58.2L83 61.8M88 58.2L86.5 61.8" fill="none" stroke="#ff5f87" stroke-width="1.5" stroke-linecap="round" />
+  <g fill="none" stroke="#2d2640" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M41 52.5C42.8 56.5 49.2 56.5 51 52.5M69 52.5C70.8 56.5 77.2 56.5 79 52.5" stroke-width="2.4" />
+    <path d="M54.5 60.5C56 58.5 57.5 62.5 60 60.5C62.5 58.5 64 62.5 65.5 60.5" stroke-width="2.1" />
+  </g>
+</svg>
