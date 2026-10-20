@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c10">
+  <meta name="description" content="Whoposted'u indir. Arkadaşlarınla TikTok videosunu kimin repost ettiğini tahmin et.">
+  <meta property="og:title" content="Whoposted — Arkadaşlarını ne kadar tanıyorsun?">
+  <meta property="og:description" content="Whoposted'u App Store veya Google Play'den indir, arkadaşlarınla oynamaya başla.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://barkinsarikartal.github.io/whoposted/">
+  <title>Whoposted'u indir</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 24px; background: #0b0c10; color: #f5f5f7; font-family: system-ui, -apple-system, sans-serif; }
+    main { width: 100%; max-width: 440px; text-align: center; }
+    .mark { display: inline-grid; place-items: center; width: 72px; height: 72px; border-radius: 22px; background: #e02828; color: #fff; font-size: 38px; font-weight: 800; }
+    h1 { font-size: clamp(32px, 9vw, 44px); margin: 22px 0 12px; letter-spacing: -1px; }
+    h1 .brand { color: #e02828; }
+    p { color: #9ca3af; line-height: 1.65; }
+    nav { display: grid; gap: 12px; margin: 28px 0; }
+    nav a { display: block; padding: 17px 20px; border-radius: 14px; background: #e02828; color: #fff; font-weight: 700; text-decoration: none; }
+    nav a:last-child { background: #232428; color: #f5f5f7; border: 1px solid #45464a; }
+    a:focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
+    #status { font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="mark" aria-hidden="true">W</span>
+    <h1><span>Who</span><span class="brand">posted</span></h1>
+    <p>Arkadaşlarını ne kadar tanıyorsun?<br>TikTok videosunu kimin repost ettiğini tahmin et.</p>
+    <nav aria-label="Uygulamayı indir">
+      <a id="app-store" href="https://apps.apple.com/app/whoposted/id6809212214#productRatings">App Store’dan indir</a>
+      <a id="play-store" href="https://play.google.com/store/apps/details?id=io.whoposted.app">Google Play’den indir</a>
+      <a id="website" href="https://whoposted.io">Whoposted sitesine git</a>
+    </nav>
+    <p id="status" role="status">Telefonuna uygun mağazayı seçerek oynamaya başla.</p>
+    <noscript><p>Whoposted’u indirmek için yukarıdaki mağaza bağlantılarından birini seç.</p></noscript>
+  </main>
+  <script>
+    (() => {
+      const ua = navigator.userAgent || '';
+      const isAndroid = /Android/i.test(ua);
+      const isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+        (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+      const storeId = isAndroid ? 'play-store' : isIOS ? 'app-store' : 'website';
+      const link = document.getElementById(storeId);
+      document.getElementById('status').textContent =
+        'Yönlendiriliyorsun. Açılmazsa yukarıdaki bağlantıya dokun.';
+      try { window.location.replace(link.href); } catch (_) {
+        // Store links remain available if an in-app browser blocks navigation.
+      }
+    })();
+  </script>
+</body>
+</html>
