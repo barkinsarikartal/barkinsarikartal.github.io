@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="tr" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fotoğraftan mini heykel · Barkın Sarıkartal</title>
+<meta name="description" content="Yüz ve boydan fotoğrafından animasyon karakteri oluştur, MakerLab PrintU ile 3D modele dönüştür ve STL olarak baskıya hazırla. Örnek prompt ve adımlar.">
+<meta property="og:title" content="Kendinin masaüstü sürümünü yap">
+<meta property="og:description" content="ChatGPT → MakerLab PrintU → STL → 3D baskı. Örnek prompt ve adım adım rehber.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../../styles/style.css"><link rel="stylesheet" href="../kaynaklar.css"><script src="../kaynaklar.js" defer></script>
+<style>
+.steps { display:grid; gap:1.5rem; margin:2rem 0; }
+.steps h2 { font-size:1.35rem; margin-bottom:1rem; }
+.steps p, .steps li { color:var(--text-secondary); line-height:1.8; }
+.steps ol, .steps ul { padding-left:1.3rem; }
+.steps li { margin-bottom:.6rem; }
+.steps .btn { display:inline-block; margin-top:1rem; }
+.flow { color:var(--accent-color); font-weight:600; margin-top:1.25rem; line-height:1.8; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="navbar"><nav class="nav-content resource-nav" aria-label="Ana gezinme"><a class="logo" href="../../index.html">BS.</a><div class="resource-nav-actions"><a href="../../index.html">Portfolyo ↗</a><button id="resource-theme" type="button">Koyu tema</button></div></nav></header>
+<main id="icerik" class="resource-main">
+<header class="resource-heading"><p class="eyebrow">3D baskı · Video rehberi</p><h1>Kendinin masaüstü<br>sürümünü yap.</h1><p class="resource-description">İki fotoğraftan animasyon karakterine, oradan tek renkli mini heykele. Videodaki akışı denemek için örnek prompt ve adımlar burada.</p><p class="flow">Fotoğraflar → ChatGPT → PrintU → STL → Baskı</p></header>
+<div class="steps">
+<section class="resource-panel"><h2>1. Fotoğraflarını hazırla</h2><p>Net bir yüz fotoğrafı ve baştan ayağa göründüğün bir boydan fotoğraf seç. Yüzünün kapanmadığı, kıyafetinin ve duruşunun anlaşılır olduğu kareler kullan. İki fotoğrafı da aynı ChatGPT mesajına ekle.</p></section>
+<section class="resource-panel"><div class="panel-heading"><h2>2. Animasyon karakterini oluştur</h2><button id="copy-prompt" class="btn primary-btn" type="button" disabled>Promptu kopyala</button></div><p>Aşağıdaki örnek promptu fotoğraflarınla birlikte gönder. Kıyafet ve duruş tercihlerini değiştirebilirsin. Çıkan görselde yüz benzerliğini, elleri ve ayakları kontrol et; sorun varsa 3D model aşamasından önce düzelt.</p><label class="sr-only" for="prompt-text">Animasyon karakteri için örnek prompt</label><textarea id="prompt-text" readonly hidden></textarea><p id="prompt-status" class="resource-status" role="status">Örnek prompt yükleniyor…</p><a href="prompt.txt">Promptu metin olarak aç ↗</a><noscript><p>Promptu yukarıdaki metin bağlantısından açıp kopyalayabilirsin.</p></noscript></section>
+<section class="resource-panel"><h2>3. MakerLab’de PrintU’yu aç</h2><ol><li>Bambu Studio içinden MakerLab’e geç ve <strong>PrintU</strong> aracını seç. İstersen aşağıdaki web bağlantısını kullan.</li><li>ChatGPT’den indirdiğin karakter görselini yükle.</li><li>Gösterilen önizlemeyi kontrol et. Görünüm istediğin gibiyse <strong>Generate 3D Model</strong> ile modeli oluştur.</li><li>Modeli döndürerek arkasını, kollarını, ayaklarını ve tabanını incele.</li></ol><a class="btn primary-btn" href="https://makerworld.com/en/makerlab/printU">MakerLab PrintU’yu aç ↗</a><p class="resource-note">Hesap, kredi ve dışa aktarma koşullarını işlem ekranından kontrol et; arayüz ve kullanım koşulları değişebilir.</p></section>
+<section class="resource-panel"><h2>4. STL’yi dışa aktar ve dilimle</h2><ol><li><strong>Export</strong> bölümünden modeli <strong>STL</strong> olarak indir.</li><li>Dosyayı Bambu Studio’da aç. Kendi yazıcını, takılı nozulunu ve kullandığın filament profilini seç.</li><li>Figürün boyutunu ayarla; tabanını tablaya oturt. İnce kısımları ve destek gerektiren çıkıntıları kontrol et.</li><li>Modeli dilimle. Katman önizlemesinde havada başlayan bölgeleri, destekleri ve yüz detaylarını incele.</li><li>Önizleme uygunsa baskıya gönder.</li></ol><p class="resource-note"><strong>STL renkleri taşımaz.</strong> Bu rehber tek renkli baskı akışıdır; görselin renkleri STL ile otomatik basılmaz. Başarılı model üretimi, sorunsuz baskı garantisi değildir.</p></section>
+<section class="resource-panel"><h2>Sonuç istediğin gibi değilse</h2><ul><li><strong>Yüz benzemiyorsa:</strong> Daha net yüz fotoğrafı kullan; ChatGPT’den yüz hatlarını koruyup stilin abartısını azaltmasını iste.</li><li><strong>Eller veya uzuvlar bozuksa:</strong> Önce kaynak görselde sade bir duruş oluştur, sonra modeli yeniden üret.</li><li><strong>İnce parçalar kayboluyorsa:</strong> Kaynak görselde daha dolgun biçimler iste; model boyutunu ve dilimleyici önizlemesini kontrol et.</li><li><strong>Figür dengede durmuyorsa:</strong> Kaidenin modele bağlı ve tabanının düz olduğunu kontrol et.</li></ul></section>
+</div>
+</main><footer class="resource-footer"><a href="../../index.html">Barkın Sarıkartal</a><p>Videolardan notlar ve kaynaklar.</p></footer>
+</body></html>
