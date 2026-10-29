@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snake vs Snack</title>
+<style>
+  :root {
+    --bg: #0b1020;
+    --panel: #111a2e;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --green: #22c55e;
+    --red: #ef4444;
+    --border: #243049;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 12px 20px;
+    overflow-x: hidden;
+  }
+  .wrap { width: 100%; max-width: 672px; }
+  header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap; margin-bottom: 10px;
+  }
+  h1 { font-size: 22px; margin: 0; letter-spacing: 0.5px; }
+  h1 span { color: var(--red); }
+  .hint { color: var(--muted); font-size: 13px; }
+  .controls {
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+    margin-bottom: 10px;
+  }
+  .modes { display: inline-flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .modes button {
+    background: var(--panel); color: var(--muted); border: 0;
+    padding: 10px 16px; font-size: 15px; cursor: pointer;
+  }
+  .modes button.active { background: var(--green); color: #052e16; font-weight: 700; }
+  .modes button + button { border-left: 1px solid var(--border); }
+  #restart {
+    background: var(--panel); color: var(--text); border: 1px solid var(--border);
+    border-radius: 10px; padding: 10px 16px; font-size: 15px; cursor: pointer;
+  }
+  #restart:hover, .modes button:hover { filter: brightness(1.15); }
+  #status { color: var(--muted); font-size: 14px; margin: 0 0 8px; min-height: 1.3em; }
+  #status strong { color: var(--text); }
+  #playfield { width: 100%; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #0f172a;
+    touch-action: none;            /* swipes steer the snake, never scroll or zoom the page */
+    -webkit-user-select: none; user-select: none; }
+  #playfield canvas { display: block; width: 100%; height: auto; }
+  footer { margin-top: 12px; color: var(--muted); font-size: 12px; }
+  footer a { color: var(--muted); }
+
+  /* On-screen direction pad: shown on touch devices (coarse pointer) or after the first touch */
+  #dpad {
+    display: none;
+    grid-template-columns: 64px 64px 64px;
+    grid-template-rows: 64px 64px 64px;
+    gap: 6px;
+    justify-content: center;
+    margin: 14px auto 0;
+    touch-action: none;
+    -webkit-user-select: none; user-select: none;
+  }
+  @media (pointer: coarse) { #dpad { display: grid; } }
+  body.touch #dpad { display: grid; }
+  .hint-touch { display: none; }
+  @media (pointer: coarse) { .hint-keys { display: none; } .hint-touch { display: inline; } }
+  body.touch .hint-keys { display: none; }
+  body.touch .hint-touch { display: inline; }
+  #dpad button {
+    background: var(--panel); color: var(--text); border: 1px solid var(--border);
+    border-radius: 12px; font-size: 26px; line-height: 1; cursor: pointer;
+    touch-action: none; -webkit-tap-highlight-color: transparent;
+  }
+  #dpad button:active { background: var(--green); color: #052e16; }
+  #dpad .up    { grid-column: 2; grid-row: 1; }
+  #dpad .left  { grid-column: 1; grid-row: 2; }
+  #dpad .right { grid-column: 3; grid-row: 2; }
+  #dpad .down  { grid-column: 2; grid-row: 3; }
+  button { touch-action: manipulation; }   /* no double-tap zoom on buttons */
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Snake <span>vs</span> Snack</h1>
+    <div class="hint">
+      <span class="hint-keys">Ok tuşları veya WASD · bir yön tuşuna basınca başlar</span>
+      <span class="hint-touch">Kaydır veya yön tuşlarına dokun · ilk dokunuşta başlar</span>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="modes" role="group" aria-label="Oyun modu">
+      <button type="button" id="mode-classic" data-mode="classic">Klasik</button>
+      <button type="button" id="mode-escaping" data-mode="escaping">Kaçan Yem</button>
+    </div>
+    <button type="button" id="restart">Yeniden Başlat</button>
+  </div>
+
+  <p id="status"></p>
+
+  <div id="playfield"></div>
+
+  <div id="dpad" aria-label="Yön tuşları">
+    <button type="button" class="up"    data-dir="up"    aria-label="Yukarı">▲</button>
+    <button type="button" class="left"  data-dir="left"  aria-label="Sol">◀</button>
+    <button type="button" class="right" data-dir="right" aria-label="Sağ">▶</button>
+    <button type="button" class="down"  data-dir="down"  aria-label="Aşağı">▼</button>
+  </div>
+
+  <footer>
+    Temel oyun: <a href="https://github.com/betamos/Snake-JS">Snake-JS</a>, Didrik Nordström, MIT lisansı.
+    Kaçan yem modu bu demo için eklendi.
+  </footer>
+</div>
+
+<script src="snake-js.js"></script>
+<script>
+(function(){
+  var MODE_TEXT = {
+    classic:  "<strong>Klasik</strong> — yem yerinde durur.",
+    escaping: "<strong>Kaçan Yem</strong> — yılan 4 hücreden yakına gelince yem kaçar (en fazla 3 harekette 1 adım)."
+  };
+
+  var playfield = document.getElementById("playfield");
+  var status = document.getElementById("status");
+  var modeButtons = document.querySelectorAll(".modes button");
+  var game = null;
+  var currentMode = "classic";
+
+  function configFor(mode) {
+    return {
+      gridWidth : 24,
+      gridHeight : 18,
+      pointSize : 28,
+      frameInterval : 130,
+      backgroundColor : "#0f172a",
+      gridLineColor : "rgba(255,255,255,0.05)",
+      snakeColor : "#22c55e",
+      snakeEyeColor : "#052e16",
+      candyColor : "#ef4444",
+      shrinkingCandyColor : "#f97316",
+      scoreBoardColor : "#1e293b",
+      scoreTextColor : "#e2e8f0",
+      scoreBoardHeight : 36,
+      scoreLabel : "SKOR",
+      highScoreLabel : "REKOR",
+      winMessage : "KAZANDIN!",
+      collisionTolerance : 1,
+      initialLength : 5,        // the snake starts with 5 cells
+      growthPerCandy : 1,       // and grows by 1 cell per candy
+
+      // Escaping candy settings (tunable)
+      escapingCandy : mode === "escaping",
+      escapeDistance : 4,       // flee while Manhattan distance < 4
+      escapeEveryNMoves : 3     // at most one 1-cell step per 3 snake moves
+    };
+  }
+
+  function startGame(mode) {
+    if (game) {
+      game.destroy();   // stops the interval, pending timeouts and key listeners, removes the canvas
+      game = null;
+    }
+    currentMode = mode;
+    document.body.setAttribute("data-mode", mode);
+    for (var i = 0; i < modeButtons.length; i++)
+      modeButtons[i].classList.toggle("active", modeButtons[i].getAttribute("data-mode") === mode);
+    status.innerHTML = MODE_TEXT[mode];
+    game = new SnakeJS(playfield, configFor(mode));
+    window.game = game;   // handy for debugging and tests
+  }
+
+  for (var i = 0; i < modeButtons.length; i++) {
+    modeButtons[i].addEventListener("click", function(){
+      startGame(this.getAttribute("data-mode"));
+      this.blur();
+    });
+  }
+  document.getElementById("restart").addEventListener("click", function(){
+    startGame(currentMode);
+    this.blur();
+  });
+
+  // Keep the page still while playing (space / arrows must never scroll)
+  window.addEventListener("keydown", function(e){
+    if (e.key === " " || e.key === "Spacebar") e.preventDefault();
+  });
+
+  // ---- Touch controls -------------------------------------------------
+  var SWIPE_MIN_PX = 20;   // minimum finger travel to count as a swipe
+
+  function steer(dir) {
+    if (game) game.steer(dir);
+  }
+
+  // Swipe anywhere on the play field. Pointer events cover touch, pen and mouse.
+  var swipeStart = null;
+  playfield.addEventListener("pointerdown", function(e){
+    swipeStart = { x: e.clientX, y: e.clientY, id: e.pointerId };
+    if (e.pointerType === "touch") document.body.classList.add("touch");
+    e.preventDefault();
+  });
+  playfield.addEventListener("pointermove", function(e){
+    if (!swipeStart || e.pointerId !== swipeStart.id) return;
+    var dx = e.clientX - swipeStart.x, dy = e.clientY - swipeStart.y;
+    if (Math.abs(dx) < SWIPE_MIN_PX && Math.abs(dy) < SWIPE_MIN_PX) return;
+    // Steer as soon as the threshold is crossed, then restart the gesture from here
+    steer(Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "right" : "left") : (dy > 0 ? "down" : "up"));
+    swipeStart = { x: e.clientX, y: e.clientY, id: e.pointerId };
+  });
+  function endSwipe(){ swipeStart = null; }
+  playfield.addEventListener("pointerup", endSwipe);
+  playfield.addEventListener("pointercancel", endSwipe);
+  playfield.addEventListener("contextmenu", function(e){ e.preventDefault(); });
+
+  // On-screen direction pad: react on press, not on click, so it feels instant
+  var dpadButtons = document.querySelectorAll("#dpad button");
+  for (var d = 0; d < dpadButtons.length; d++) {
+    dpadButtons[d].addEventListener("pointerdown", function(e){
+      e.preventDefault();
+      steer(this.getAttribute("data-dir"));
+    });
+    dpadButtons[d].addEventListener("click", function(e){ e.preventDefault(); }); // already handled on press
+  }
+
+  // Show the pad after the first touch on devices the media query does not catch
+  window.addEventListener("touchstart", function(){ document.body.classList.add("touch"); }, { passive: true, once: true });
+
+  window.startGame = startGame;
+  startGame("classic");
+})();
+</script>
+</body>
+</html>
